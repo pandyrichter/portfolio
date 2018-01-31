@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="resume" id="resume">
     <div>
       <h3>Education</h3>
       <div v-for="e in education" :key="e.name">
@@ -25,13 +25,13 @@
       <div class="skills__title">
         <h3>Skills I can use professionally...</h3>
         <ul>
-          <li v-for="(s, index) in skills.confident" :key="index">{{ s }}</li>
+          <li class="skills_skill" v-for="(s, index) in skills.confident" :key="index">{{ s }}</li>
         </ul>
       </div>
       <div class="skills__title">
         <h3>Skills I'm working on...</h3>
         <ul>
-          <li v-for="(s, index) in skills.workingOn" :key="index">{{ s }}</li>
+          <li class="skills_skill" v-for="(s, index) in skills.workingOn" :key="index">{{ s }}</li>
         </ul>
       </div>
     </div>
@@ -125,14 +125,23 @@ export default {
 </script>
 
 <style>
+.resume {
+  text-align: left;
+}
+
 .skills {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border: 1px solid teal;
+  padding: 10px;
 }
 
 .skills__title > h3 {
   border-bottom: 1px solid teal;
+}
+
+.skills__skill {
+  display: block;
 }
 
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="currently">
-    <div>Currently reading: {{ book }}</div>
-    <div>Currently skiing: {{ skiing.mountain }} | {{ skiing. runs }}</div>
+    <div>CURRENTLY:</div>
+    <div>Reading: {{ book }}</div>
+    <div>Skiing: {{ skiing.mountain }} | {{ skiing. runs }}</div>
     <div>Project: {{ project }}</div>
   </div>
 </template>
@@ -24,6 +25,11 @@ export default {
 
 <style>
 .currently {
+  border-top: 1px solid teal;
+  border-bottom: 1px solid teal;
   display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 10px 0px;
 }
 </style>

@@ -1,18 +1,19 @@
 <template>
-  <div>
-    <div class="filter-bar">
-      <div>{{ filters.active }}</div>
-      <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
-    </div>
+  <div class="headline-wrapper">
     <div class="headline">
       <div class="headline__left">
         <h1>Dave Stein</h1>
-        <h2>Product Designer | Real Estate, Hospitality, Finance</h2>
+        <h2>Product Designer for Real Estate, Construction, Hopsitality, Finance</h2>
+        <h2>(I also love <span class="highlight">music</span> and <span class="highlight">getting outside.</span>)</h2>
+        <div class="filter-bar">
+        <div>{{ filters.active }}</div>
+        <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
+        </div>
       </div>
       <div class="headline__right">
         <div v-for="p in projects" :key="p.name" class="project">
-          <div>{{ p.headline }}</div>
-          <div>{{ p.name }}</div>
+          <div class="project__headline">{{ p.headline }}</div>
+          <div class="project__name">{{ p.name }}</div>
           <div>{{ p.description }}</div>
           <div>
             <a :href="p.website" target="_blank">Visit here</a>
@@ -27,6 +28,7 @@
       <div>Phone: {{ contact.phone }}</div>
       <div>Linkedin</div>
       <div>Github</div>
+      <a href="#resume">Resume</a>
     </div>
   </div>
 </template>
@@ -40,19 +42,11 @@ export default {
         options: ['UX Design', 'Visual Design', 'Branding', 'Analytics', 'Development'],
       },
       projects: {
-        project1: {
-          name: 'Shiny Buildings',
-          headline: 'I built and started',
-          description: 'Centralized data storage and access for real estate owners and their buildings',
-          website: 'www.shinybuildings.co',
-          process: 'www',
-          skills: ['UX Design', 'Visual Design', 'Branding', 'Development']
-        },
         project2: {
           name: 'Benjamin West',
           headline: 'I work at',
-          description: 'Digital services for real estate furniture, fixutre, and equipment procurement',
-          website: 'www.benjaminwest.com',
+          description: 'Digital services for real estate furniture, fixtures, and equipment procurement',
+          website: 'http://www.benjaminwest.com',
           process: 'www',
           skills: ['Analytics', 'UX Design', 'Visual Design', 'Development']
         },
@@ -60,10 +54,18 @@ export default {
           name: 'Hotelied',
           headline: 'I previously worked at',
           description: 'Luxury hotel bookings that reward you for being you',
-          website: 'www.hotelied.com',
+          website: '#',
           process: 'www',
           skills: ['Visual Design', 'Branding']
         },
+        project1: {
+          name: 'Shiny Buildings',
+          headline: 'I built and started',
+          description: 'Centralized data storage and access for real estate owners and their buildings',
+          website: 'https://www.shinybuildings.co',
+          process: 'www',
+          skills: ['UX Design', 'Visual Design', 'Branding', 'Development']
+        }
       },
       contact: {
         phone: '781-775-8125',
@@ -87,15 +89,22 @@ export default {
 </script>
 
 <style>
+.headline-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 .filter-bar {
   display: flex;
   justify-content: flex-end;
 }
 
 .filter-bar__buttons {
-  background-color: white;
+  background-color: #34E4EA;
   border-radius: 5px;
-  color: teal;
+  color: #2B4141;
   padding: 5px;
 }
 
@@ -107,28 +116,81 @@ export default {
   padding: 5px;
 }
 
+.highlight {
+  background-color: #34E4EA;
+  padding: 2px;
+  color: black;
+}
+
 .headline {
-  border: 1px solid teal;
+  background-color: #37A1E1;
+  border: 1px solid #37A1E1;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
+.headline__left {
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.headline__left > h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.headline__left > h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.headline__right {
+  padding: 10px;
+}
+
 .project {
-  border: 1px solid gray;
-  color: teal;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  color: #37A1E1;
   padding: 10px;
   text-align: left;
 }
 
+.project__headline {
+  background-color: #37A1E1;
+  color: white;
+  padding: 5px;
+  font-size: .8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.project__name {
+  color: black;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
 .project__skills {
-  color: teal;
+  color: #37A1E1;
   display: inline;
+  font-size: .8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 5px;
 }
 
 .contact {
+  border-top: 1px solid #37A1E1;
+  padding-top: 15px;
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
+  width: 100%;
 }
 
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <headline></headline>
+    <project></project>
     <resume></resume>
     <currently></currently>
   </div>
@@ -8,6 +9,7 @@
 
 <script>
 import Headline from './Headline'
+import Project from './Project'
 import Resume from './Resume'
 import Currently from './Currently'
 
@@ -20,6 +22,7 @@ export default {
   },
   components: {
     Headline,
+    Project,
     Resume,
     Currently
   }
@@ -28,7 +31,8 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
