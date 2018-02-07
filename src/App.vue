@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <headline></headline>
+    <div>Previous Project | Next Project ></div>
     <project></project>
     <resume></resume>
     <currently></currently>
