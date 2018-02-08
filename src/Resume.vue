@@ -127,6 +127,8 @@ export default {
 <style>
 .resume {
   text-align: left;
+  width: 920px;
+  margin: 0 auto;
 }
 
 .skills {

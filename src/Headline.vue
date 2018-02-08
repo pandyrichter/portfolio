@@ -4,11 +4,11 @@
       <div class="headline__left">
         <h1>Dave Stein</h1>
         <h2>Product Designer for Real Estate, Construction, Hopsitality, Finance</h2>
-        <h2>(I also love <span class="highlight">music</span> and <span class="highlight">getting outside.</span>)</h2>
         <div class="filter-bar">
-        <div>{{ filters.active }}</div>
-        <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
+          <div>{{ filters.active }}</div>
+          <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
         </div>
+        <h2>(I also love <span class="highlight">music</span> and <span class="highlight">getting outside.</span>)</h2>
       </div>
       <div class="headline__right">
         <div v-for="p in projects" :key="p.name" class="project">
@@ -22,13 +22,13 @@
           <div v-for="(p, index) in p.skills" :key="index" class="project__skills">{{ p }}</div>
         </div>
       </div>
-    </div>
-    <div class="contact">
-      <div>Email: {{ contact.email }}</div>
-      <div>Phone: {{ contact.phone }}</div>
-      <div>Linkedin</div>
-      <div>Github</div>
-      <a href="#resume">Resume</a>
+      <div class="contact">
+        <div>Email: {{ contact.email }}</div>
+        <div>Phone: {{ contact.phone }}</div>
+        <div>Linkedin</div>
+        <div>Github</div>
+        <a href="#resume">Resume</a>
+      </div>
     </div>
   </div>
 </template>
@@ -90,11 +90,13 @@ export default {
 
 <style>
 .headline-wrapper {
+  background-color: #37A1E1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 25px;
 }
 .filter-bar {
   display: flex;
@@ -126,6 +128,7 @@ export default {
   background-color: #37A1E1;
   border: 1px solid #37A1E1;
   border-radius: 5px;
+  width: 920px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
