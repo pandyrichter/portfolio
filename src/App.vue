@@ -4,7 +4,7 @@
     <div id="projectWrapper">
       <div id="projectNav">
         <div class="project-nav" @click="toggleThruProjects('prev')">Prev Project</div>
-        <div>{{ projectIndex + 1 }}</div>
+        <div>Project {{ projectIndex + 1 }}</div>
         <div class="project-nav" @click="toggleThruProjects('next')">Next Project</div>
       </div>
       <project v-for="(project, i) in projectsFull" v-show="projectIndex === i" :key="project.id" :projectData="project"></project>
@@ -71,6 +71,11 @@ export default {
 </script>
 
 <style>
+:root {
+  --cyan: #38FFD9;
+  --blue: #37A1E1;
+}
+
 body {
   margin: 0;
 }
