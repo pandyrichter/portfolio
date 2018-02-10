@@ -106,7 +106,14 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #333;
+  font-weight: 500;
+  font-size: .8rem;
+  transition: color 250ms;
+}
+
+a:hover {
+  color: var(--cyan)
 }
 
 #projectNav {
@@ -120,5 +127,7 @@ a {
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
 </style>
