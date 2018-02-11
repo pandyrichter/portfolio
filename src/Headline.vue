@@ -3,17 +3,22 @@
     <div class="headline">
       <div>
         <div class="headline__top">
-          <h1>Dave Stein</h1>
-          <h2>Product Designer for Real Estate, Construction, Hospitality + Finance Tech</h2>
+          <h1><span class="accent--green">Hi,</span> I'm Dave! <br> I'm a Product Designer for Real Estate, Construction, Hospitality + Finance Tech</h1>
+          <div class="hr--green"></div>
+          <h2>I combine my business background with
+            <span class="accent--green">Visual, UX, and Branding Design</span><br>and
+            <span class="accent--green">Front-End Development</span>
+            skills to make informed and thoughtful experiences.
+          </h2>
         </div>
-        <div class="skills-bar">
+        <!-- <div class="skills-bar">
           <div class="filter-bar">
             <div>{{ filters.active }}</div>
             <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
           </div>
-        </div>
+        </div> -->
       </div>
-      <div></div>
+      <div class="hr--green"></div>
       <div class="headline__bottom">
         <div v-for="p in projects" :key="p.name" class="project">
           <div class="project__headline">{{ p.headline }}:</div>
@@ -30,14 +35,13 @@
       </div>
         <h2>(I also love 🎸<span class="highlight">music</span>, <span class="highlight">drawing</span> and 🎄🎄<span class="highlight">getting outside</span>.)</h2>
     </div>
-    <div class="contact">
+    <!-- <div class="contact">
       <div>Email: {{ contact.email }}</div>
       <div>Phone: {{ contact.phone }}</div>
       <div>Linkedin</div>
       <div>Github</div>
-      <!-- <a href="#resume">Resume</a> -->
       <router-link :to="{ name: 'Resume' }">Resume</router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -68,7 +72,7 @@ export default {
         },
         project1: {
           name: '🏰 Shiny Buildings',
-          headline: 'I built and started',
+          headline: 'I built and founded',
           description: 'Centralized data storage and access for real estate owners and their buildings',
           website: 'https://www.shinybuildings.co',
           process: '',
@@ -104,7 +108,6 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 25px;
   padding: 30px;
 }
 
@@ -130,13 +133,15 @@ export default {
 .highlight {
   background-color: #34E4EA;
   border-radius: 3px;
-  padding: 2px;
+  padding: 2px 5px;
   color: black;
   cursor: pointer;
+  transition: all 250ms;
 }
 
 .highlight:hover {
-  background-color: rgb(252, 255, 46); 
+  background-color: var(--red); 
+  color: white;
 }
 
 .headline {
@@ -154,12 +159,12 @@ export default {
 .headline__top {
   color: white;
   text-align: left;
-  width: 60%;
 }
 
 .headline__top > h1 {
   font-size: 3rem;
   font-weight: 500;
+  width: 60%;
 }
 
 .headline__top > h2 {
@@ -179,7 +184,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 8px;
-  padding: 10px 15px;
+  padding: 15px 15px 10px;
   text-align: left;
 }
 
@@ -193,6 +198,7 @@ export default {
   color: #173753;
   font-weight: 500;
   font-size: 1.4rem;
+  margin-top: 5px;
 }
 
 .project__toolbar {
