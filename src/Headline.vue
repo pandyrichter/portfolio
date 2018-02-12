@@ -11,12 +11,6 @@
             skills to make informed and thoughtful experiences.
           </h2>
         </div>
-        <!-- <div class="skills-bar">
-          <div class="filter-bar">
-            <div>{{ filters.active }}</div>
-            <div v-for="(f, index) in filters.options" :key="index" class="filter-bar__buttons" @click="addProjectFilter(f)">{{ f }}</div>
-          </div>
-        </div> -->
       </div>
       <div class="hr--green"></div>
       <div class="headline__bottom">
@@ -24,24 +18,21 @@
           <div class="project-preview__headline">{{ p.headline }}:</div>
           <div class="project-preview__name">{{ p.name }}</div>
           <div class="project-preview__toolbar">
-            <div class="project-preview__description">{{ p.description }}</div>
-            <div>
-              <a :href="p.website" target="_blank">Visit here</a>
-              <a v-if="p.process" href="#">Details Here</a>
-          </div>
+            <div class="project-preview__description">
+              <div>
+              {{ p.description }}
+              </div>
+              <div>
+                <a v-if="p.website" :href="p.website" target="_blank">Visit here</a>
+                <a v-if="p.process" href="#">Details Here</a>
+              </div>
+            </div>
           </div>
           <!-- <div v-for="(p, index) in p.skills" :key="index" class="project__skills">{{ p }}</div> -->
         </div>
       </div>
         <h2>(I also love 🎸<span class="highlight">music</span>, <span class="highlight">drawing</span> and 🎄🎄<span class="highlight">getting outside</span>.)</h2>
     </div>
-    <!-- <div class="contact">
-      <div>Email: {{ contact.email }}</div>
-      <div>Phone: {{ contact.phone }}</div>
-      <div>Linkedin</div>
-      <div>Github</div>
-      <router-link :to="{ name: 'Resume' }">Resume</router-link>
-    </div> -->
   </div>
 </template>
 
@@ -58,7 +49,6 @@ export default {
           name: 'Benjamin West',
           headline: 'I work at',
           description: 'Digital services for real estate furniture, fixtures, and equipment procurement',
-          website: 'http://www.benjaminwest.com',
           process: 'www',
           skills: ['Analytics', 'UX Design', 'Visual Design', 'Development']
         },
@@ -66,7 +56,6 @@ export default {
           name: 'Hotelied',
           headline: 'I previously worked at',
           description: 'Luxury hotel bookings that reward you for being you',
-          website: '#',
           process: 'www',
           skills: ['Visual Design', 'Branding']
         },
@@ -209,6 +198,17 @@ export default {
 
 .project-preview__description {
   margin: 5px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-preview__description a {
+  background-color: var(--cyan);
+  color: #333;
+  padding: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: .8rem;
 }
 
 .contact {

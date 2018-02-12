@@ -3,18 +3,15 @@
   <transition>
     <div class="menu" v-if="menuOpened">
       <div class="menu__items">
-        <h1>Home</h1>
-        <router-link :to="{ name: 'Home' }">Home</router-link>
+        <h1 @click="navToComponent('Home')">Home</h1>
         <div class="hr--blue"></div>
-        <h1>Projects</h1>
+        <h1 >Projects</h1>
         <div class="hr--blue"></div>
-        <h1>Code</h1>
+        <h1 >Code</h1>
         <div class="hr--blue"></div>
-        <h1>Resume</h1>
-        <router-link :to="{ name: 'Resume' }">Resume</router-link>
+        <h1 @click="navToComponent('Resume')">Resume</h1>
         <div class="hr--blue"></div>
-        <h1>Contact</h1>
-        <router-link :to="{ name: 'Contact' }">Contact</router-link>
+        <h1 @click="navToComponent('Contact')">Contact</h1>
         <div class="menu-nav" @click="closeMenu">Close</div>
       </div>
     </div>
@@ -34,6 +31,13 @@ export default {
   methods: {
     closeMenu () {
       this.menuOpened = false
+    },
+    navToComponent (name) {
+      if (this.$route.name !== name) {
+        this.$router.push({ name })
+      } else {
+        this.menuOpened = false
+      }
     }
   }
 }
@@ -60,6 +64,15 @@ h1 {
 
 .menu__items {
   width: 50%;
+}
+
+.menu__items > h1 {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.menu__items > h1:hover {
+  color: var(--red);
 }
 
 .menu-nav {

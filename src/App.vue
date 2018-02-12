@@ -43,17 +43,6 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #333;
-  font-weight: 500;
-  font-size: .8rem;
-  transition: color 250ms;
-}
-
-a:hover {
-  color: var(--cyan)
-}
-
 .hr--green {
   width: 100%;
   border-bottom: 2px solid var(--cyan);
