@@ -36,10 +36,13 @@
       </div>
     </div>
     <div></div>
+    <app-menu></app-menu>
   </div>
 </template>
 
 <script>
+import Menu from './Menu'
+
 export default {
   data () {
     return {
@@ -120,6 +123,9 @@ export default {
         ]
       }
     }
+  },
+  components: {
+    AppMenu: Menu
   }
 }
 </script>

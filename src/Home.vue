@@ -1,16 +1,17 @@
 <template>
     <div>
       <headline></headline>
-      <div id="projectWrapper">
-        <nav id="projectNav">
-          <div class="project-nav" @click="toggleThruProjects('prev')">👈</div>
-          <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
-          <div class="project-nav" @click="toggleThruProjects('next')">👉</div>
+      <div>
+        <nav class="project-nav__wrapper">
+          <div class="project-nav">
+            <div class="project-nav__button" @click="toggleThruProjects('prev')">👈 Previous Project</div>
+            <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
+            <div class="project-nav__button" @click="toggleThruProjects('next')">Next Project 👉</div>
+          </div>
         </nav>
         <project v-for="(project, i) in projectsFull" v-show="projectIndex === i" :key="project.id" :projectData="project"></project>
       </div>
-     <div class="menu-nav" @click="menuOpen = !menuOpen">Menu</div>
-    <app-menu :menuOpen="menuOpen"></app-menu>
+    <app-menu></app-menu>
     </div>
 </template>
 
@@ -30,18 +31,16 @@ export default {
     }
   },
   created () {
-      const apiEndpoint = 'https://dsportfolio.prismic.io/api/v2';
+    const apiEndpoint = 'https://dsportfolio.prismic.io/api/v2';
 
-      const content = Prismic.getApi(apiEndpoint).then(api => {
-        return api.query("", { orderings: '[my.project.project_order_num]'})
-      }).then(response => {
-        console.log('Documents: ', response.results)
-        this.projectsFull = response.results
-      }, err => {
-        console.log('Something went wrong', err)
-      });
-
-      content();
+    Prismic.getApi(apiEndpoint).then(api => {
+      return api.query("", { orderings: '[my.project.project_order_num]'})
+    }).then(response => {
+      console.log('Documents: ', response.results)
+      this.projectsFull = response.results
+    }, err => {
+      console.log('Something went wrong', err)
+    });
   },
   methods: {
     toggleThruProjects (dir) {
@@ -57,7 +56,7 @@ export default {
           self.projectIndex = 0
         }
       }
-    },
+    }
   },
   components: {
     Headline,
@@ -70,17 +69,6 @@ export default {
 <style>
 body {
   margin: 0;
-}
-
-#app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family: 'Rubik', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin: 60px auto;
-  width: 920px; */
 }
 
 h1, h2 {
@@ -124,43 +112,25 @@ a:hover {
   color: var(--cyan);
 }
 
-#projectNav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.project-nav__wrapper {
   border-bottom: 1px solid var(--blue);
-  padding: 20px; 
+  padding: 20px 0px;
 }
 
 .project-nav {
-  background-color: var(--blue);
-  padding: 8px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: var(--desktopWidth);
+}
+
+.project-nav__button {
   cursor: pointer;
-  width: 25px;
-  height: 25px;
-  transition: background-color 250ms;
+  transition: color 250ms;
 }
 
-.project-nav:hover {
-  background-color: var(--cyan);
-}
-
-.menu-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  margin: 25px;
+.project-nav__button:hover {
   color: var(--blue);
-  background-color: var(--cyan);
-  border-radius: 3px;
-  padding: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.menu-nav:hover {
-  color: var(--red);
 }
 </style>

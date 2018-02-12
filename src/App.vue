@@ -16,6 +16,7 @@ export default {
   --blue: #37A1E1;
   --red: #F25757;
   --yellow: #F2E863;
+  --desktopWidth: 1080px;
 }
 
 body {

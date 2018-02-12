@@ -8,7 +8,7 @@ import Contact from './Contact.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Home, name: 'Home' },
   { path: '/resume', component: Resume, name: 'Resume' },
   { path: '/contact', component: Contact, name: 'Contact' },
   { path: '*', component: Home }

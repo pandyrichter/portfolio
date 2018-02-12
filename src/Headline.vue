@@ -20,11 +20,11 @@
       </div>
       <div class="hr--green"></div>
       <div class="headline__bottom">
-        <div v-for="p in projects" :key="p.name" class="project">
-          <div class="project__headline">{{ p.headline }}:</div>
-          <div class="project__name">{{ p.name }}</div>
-          <div class="project__toolbar">
-            <div class="project__description">{{ p.description }}</div>
+        <div v-for="p in projects" :key="p.name" class="project-preview">
+          <div class="project-preview__headline">{{ p.headline }}:</div>
+          <div class="project-preview__name">{{ p.name }}</div>
+          <div class="project-preview__toolbar">
+            <div class="project-preview__description">{{ p.description }}</div>
             <div>
               <a :href="p.website" target="_blank">Visit here</a>
               <a v-if="p.process" href="#">Details Here</a>
@@ -148,7 +148,7 @@ export default {
   background-color: #37A1E1;
   border: 1px solid #37A1E1;
   border-radius: 5px;
-  width: 1080px;
+  width: var(--desktopWidth);
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -176,7 +176,7 @@ export default {
 .headline__bottom {
 }
 
-.project {
+.project-preview {
   background-color: white;
   border-radius: 3px;
   color: #37A1E1;
@@ -188,26 +188,26 @@ export default {
   text-align: left;
 }
 
-.project__headline {
+.project-preview__headline {
   color: black;
   font-size: .85rem;
   display: inline-block;
 }
 
-.project__name {
+.project-preview__name {
   color: #173753;
   font-weight: 500;
   font-size: 1.4rem;
   margin-top: 5px;
 }
 
-.project__toolbar {
+.project-preview__toolbar {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
-.project__description {
+.project-preview__description {
   margin: 5px 0px;
 }
 

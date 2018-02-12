@@ -1,13 +1,18 @@
 <template>
   <transition name="fade">
-    <div>
+    <div class="project">
       <h1>{{ projectData.data.project_title[0].text }}</h1>
-      <h3>Company Summary</h3>
       <h3>Overview</h3>
-      <div>{{ projectData.data.project_roles }}</div>
-      <h3>Goals</h3>
-      <div>{{ projectData.data.project_research[0].text }}</div>
-      <img :src="projectData.data.lead_image.url" width="400px">
+      <p>{{ projectData.data.project_overview[0].text }}</p>
+      <h3>My Role</h3>
+      <p>{{ projectData.data.project_role[0].text }}</p>
+      <h3>Tools</h3>
+      <p>{{ projectData.data.project_tools[0].text }}</p>
+      <h3>Dates</h3>
+      <p>{{ projectData.data.project_dates[0].text }}</p>
+      <!-- <img :src="projectData.data.lead_image.url" width="400px"> -->
+      <div class="hr--blue"></div>
+      <h3>Work</h3>
       <div v-for="(gallery, i) in projectData.data.body" :key="i" class="project__carousel">
         <h2>{{ gallery.primary.gallery_title[0].text }}</h2>
         <!-- <carousel
@@ -54,8 +59,23 @@ export default {
 </script>
 
 <style>
-.project__carousel {
-  margin: 80px 0px;
+.project {
+  width: var(--desktopWidth);
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.project > h3 {
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 10px 0px 0px;
+}
+
+.project > p {
+  font-size: 1.5rem;
+  margin-top: 8px;
 }
 
 .img-wrapper {
