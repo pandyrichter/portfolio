@@ -16,7 +16,11 @@ export default {
   --blue: #37A1E1;
   --red: #F25757;
   --yellow: #F2E863;
+  --black: #333;
   --desktopWidth: 1080px;
+  --fontSm: 0.85rem;
+  --fontLg: 1.5rem;
+  --fontXl: 3.0rem;
 }
 
 body {

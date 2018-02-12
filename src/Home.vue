@@ -4,9 +4,9 @@
       <div>
         <nav class="project-nav__wrapper">
           <div class="project-nav">
-            <div class="project-nav__button" @click="toggleThruProjects('prev')">👈 Previous Project</div>
+            <div class="project-nav__button" @click="toggleThruProjects('prev')"><span class="accent--green">←</span> Previous</div>
             <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
-            <div class="project-nav__button" @click="toggleThruProjects('next')">Next Project 👉</div>
+            <div class="project-nav__button" @click="toggleThruProjects('next')">Next <span class="accent--green">→</span></div>
           </div>
         </nav>
         <project v-for="(project, i) in projectsFull" v-show="projectIndex === i" :key="project.id" :projectData="project"></project>
@@ -53,7 +53,7 @@ export default {
       } else if (dir === 'prev') {
         self.projectIndex -= 1
         if (self.projectIndex < 0) {
-          self.projectIndex = 0
+          self.projectIndex = (self.projectsFull.length - 1)
         }
       }
     }

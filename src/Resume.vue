@@ -1,5 +1,6 @@
 <template>
   <div class="resume" id="resume">
+    <h1>Resume</h1>
     <div>
       <h3>Education</h3>
       <div v-for="e in education" :key="e.name">
@@ -133,7 +134,7 @@ export default {
 <style>
 .resume {
   text-align: left;
-  width: 920px;
+  width: var(--desktopWidth);
   margin: 0 auto;
 }
 

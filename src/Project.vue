@@ -10,27 +10,15 @@
       <p>{{ projectData.data.project_tools[0].text }}</p>
       <h3>Dates</h3>
       <p>{{ projectData.data.project_dates[0].text }}</p>
-      <!-- <img :src="projectData.data.lead_image.url" width="400px"> -->
       <div class="hr--blue"></div>
       <h3>Work</h3>
-      <div v-for="(gallery, i) in projectData.data.body" :key="i" class="project__carousel">
+      <div v-for="(gallery, i) in projectData.data.body" :key="i">
         <h2>{{ gallery.primary.gallery_title[0].text }}</h2>
-        <!-- <carousel
-          :perPage="1" 
-          :scrollPerPage="true"
-          :paginationSize="5" 
-          :navigationEnabled="true"
-          :navigationNextLabel="'👉'"
-          :navigationPrevLabel="'👈'">
-          <slide v-for="(item, i) in gallery.items" :key="i">
-              <img :src="item.gallery_img.url" alt="" height="400px">
-              <div>{{ item.img_caption[0].text }}</div>
-          </slide>
-        </carousel> -->
-        <div class="img-wrapper">
+        <div>
           <div v-for="(item, i) in gallery.items" :key="i" class="project-img__block">
-            <img :src="item.gallery_img.url" alt="" class="project-img__img">
-            <!-- <div :style="{ backgroundImage: `url(${item.gallery_img.url})` }" class="project__img"></div> -->
+            <picture>
+              <img :src="item.gallery_img.url" alt="" class="project-img__img">
+            </picture>
             <div class="project-img__caption">{{ item.img_caption[0].text }}</div>
           </div>
         </div>
@@ -40,9 +28,7 @@
 </template>
 
 <script>
-// import content from './helpers/cms'
 import Prismic from 'prismic-javascript';
-import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   props: {
@@ -50,10 +36,6 @@ export default {
       type: Object,
       required: false
     }
-  },
-  components: {
-    Carousel,
-    Slide
   }
 }
 </script>
@@ -66,34 +48,48 @@ export default {
 }
 
 .project > h3 {
-  font-size: .8rem;
+  font-size: var(--fontSm);
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 10px 0px 0px;
 }
 
+.project h2 {
+  font-size: var(--fontLg);
+  padding: 15px;
+  border-bottom: 1px solid var(--black);
+}
+
 .project > p {
-  font-size: 1.5rem;
+  font-size: var(--fontLg);
   margin-top: 8px;
 }
 
-.img-wrapper {
-  width: 800px;
+/* .img-grid {
   margin: 0 auto;
-}
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  grid-gap: 20px;
+} */
 
 .project-img__block {
-  margin-bottom: 25px;
+  margin: 25px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .project-img__img {
-  display: inline-block;
-  max-width: 600px;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .project-img__caption {
-  font-size: .8rem;
+  font-size: var(--fontSm);
+  color: var(--blue);
+  margin-top: 20px;
 }
 
 .fade-enter-active, .fade-leave-active {

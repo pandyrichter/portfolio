@@ -7,7 +7,7 @@
         <div class="hr--blue"></div>
         <h1 >Projects</h1>
         <div class="hr--blue"></div>
-        <h1 >Code</h1>
+        <h1 @click="navToComponent('Code')">Code</h1>
         <div class="hr--blue"></div>
         <h1 @click="navToComponent('Resume')">Resume</h1>
         <div class="hr--blue"></div>
@@ -36,7 +36,7 @@ export default {
       if (this.$route.name !== name) {
         this.$router.push({ name })
       } else {
-        this.menuOpened = false
+        this.closeMenu()
       }
     }
   }
@@ -59,7 +59,6 @@ h1 {
   top: 0;
   left: 0;
   background-color: var(--cyan);
-  color: var(--blue);
 }
 
 .menu__items {
@@ -69,10 +68,11 @@ h1 {
 .menu__items > h1 {
   cursor: pointer;
   transition: color 200ms;
+  color: var(--black);
 }
 
 .menu__items > h1:hover {
-  color: var(--red);
+  color: var(--blue);
 }
 
 .menu-nav {

@@ -23,8 +23,8 @@
               {{ p.description }}
               </div>
               <div>
-                <a v-if="p.website" :href="p.website" target="_blank">Visit here</a>
-                <a v-if="p.process" href="#">Details Here</a>
+                <a v-if="p.website" :href="p.website" target="_blank">| Visit Site</a>
+                <a v-if="p.process" href="#">| View Details</a>
               </div>
             </div>
           </div>
@@ -100,25 +100,6 @@ export default {
   padding: 30px;
 }
 
-.skills-bar {
-  margin: 15px 0px;
-}
-
-.filter-bar {
-  display: flex;
-  justify-content: flex-start;
-  border-top: 2px solid var(--cyan);
-  border-bottom: 2px solid var(--cyan);
-  padding: 5px;
-}
-
-.filter-bar__buttons {
-  border-radius: 5px;
-  color: var(--cyan);
-  padding: 2px;
-  margin-right: 15px;
-}
-
 .highlight {
   background-color: #34E4EA;
   border-radius: 3px;
@@ -151,18 +132,15 @@ export default {
 }
 
 .headline__top > h1 {
-  font-size: 3rem;
+  font-size: var(--fontXl);
   font-weight: 500;
   width: 60%;
 }
 
 .headline__top > h2 {
-  font-size: 1.5rem;
+  font-size: var(--fontLg);
   font-weight: 500;
   margin-bottom: 0px;
-}
-
-.headline__bottom {
 }
 
 .project-preview {
@@ -179,14 +157,14 @@ export default {
 
 .project-preview__headline {
   color: black;
-  font-size: .85rem;
+  font-size: var(--fontSm);
   display: inline-block;
 }
 
 .project-preview__name {
   color: #173753;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: var(--fontLg);
   margin-top: 5px;
 }
 
@@ -199,16 +177,18 @@ export default {
 .project-preview__description {
   margin: 5px 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
 }
 
 .project-preview__description a {
-  background-color: var(--cyan);
   color: #333;
   padding: 5px;
   border-radius: 4px;
   text-decoration: none;
-  font-size: .8rem;
+  font-size: var(--fontSm);
+  font-weight: 500;
 }
 
 .contact {
