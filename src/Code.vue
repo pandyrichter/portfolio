@@ -1,11 +1,11 @@
 <template>
   <div class="code">
-    <h1>Code Samples</h1>
+    <h1>Code</h1>
     <p>Learning to code has helped me to become a better and more effective designer.
       <br>Here are a few very smalls samples that help demonstrate how I think with code.
     </p>
-    <h3>My first code</h3>
-    <p id="jsSample1"></p>
+    <a target="_blank" href="https://medium.com/@ddubski/setting-up-modular-postcss-with-webpack-9af084513acc">A Medium Post</a>
+    <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">My First Stack Overflow Question</a>
     <app-menu></app-menu>
   </div>
 </template>
@@ -42,5 +42,15 @@ export default {
 
 .code > p {
   font-size: var(--fontLg);
+}
+
+.code > a {
+  display: block;
+  font-size: var(--fontLg);
+  color: var(--cyan);
+}
+
+.code a:hover {
+  color: var(--blue);
 }
 </style>

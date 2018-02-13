@@ -12,8 +12,9 @@
       <p>{{ projectData.data.project_dates[0].text }}</p>
       <div class="hr--blue"></div>
       <h3>Work</h3>
-      <div v-for="(gallery, i) in projectData.data.body" :key="i">
+      <div v-for="(gallery, i) in projectData.data.body" :key="i" class="project-gallery">
         <h2>{{ gallery.primary.gallery_title[0].text }}</h2>
+        <div class="project-gallery__description">{{ gallery.primary.gallery_description[0].text }}</div>
         <div>
           <div v-for="(item, i) in gallery.items" :key="i" class="project-img__block">
             <picture>
@@ -52,18 +53,26 @@ export default {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  margin: 10px 0px 0px;
+  margin: 20px 0px 0px;
 }
 
 .project h2 {
   font-size: var(--fontLg);
-  padding: 15px;
-  border-bottom: 1px solid var(--black);
 }
 
 .project > p {
   font-size: var(--fontLg);
   margin-top: 8px;
+}
+
+.project-gallery {
+  margin-top: 50px;
+}
+
+.project-gallery__description {
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
+  padding: 25px 0px;
 }
 
 /* .img-grid {

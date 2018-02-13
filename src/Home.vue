@@ -2,7 +2,7 @@
     <div>
       <headline></headline>
       <div>
-        <nav class="project-nav__wrapper">
+        <nav id="projectNav" class="project-nav__wrapper">
           <div class="project-nav">
             <div class="project-nav__button" @click="toggleThruProjects('prev')"><span class="accent--green">←</span> Previous</div>
             <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
@@ -42,6 +42,22 @@ export default {
       console.log('Something went wrong', err)
     });
   },
+  // mounted () {
+  //   const nav = document.getElementById('projectNav')
+  //   const topOfNav = nav.offsetTop;
+
+  //   function fixNav() {
+  //     console.log(topOfNav, window.scrollY);
+  //     if (window.scrollY >= topOfNav) {
+  //       document.body.style.paddingTop = nav.offsetHeight;
+  //       document.body.classList.add('fixed-nav');
+  //     } else {
+  //       document.body.classList.remove('fixed-nav');
+  //     }
+  //   }
+
+  //   window.addEventListener('scroll', fixNav);
+  // },
   methods: {
     toggleThruProjects (dir) {
       let self = this
@@ -99,6 +115,10 @@ li {
 
 .accent--green {
   color: var(--cyan);
+}
+
+.fixed-nav {
+  position: fixed;
 }
 
 .project-nav__wrapper {

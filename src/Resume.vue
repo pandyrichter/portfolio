@@ -1,40 +1,40 @@
 <template>
-  <div class="resume" id="resume">
+  <div class="resume">
     <h1>Resume</h1>
     <div>
-      <h3>Education</h3>
-      <div v-for="e in education" :key="e.name">
+      <div v-for="e in education" :key="e.name" class="resume__block">
         <div>{{ e.name }}</div>
+        <div>{{ e.dates }}</div>
         <div>{{ e.degree }} <span v-if="e.minor">| {{ e.minor }}</span></div>
-        <div>{{ e.concentration }}</div>
-        <hr>
+        <div>Concentration: {{ e.concentration }}</div>
       </div>
     </div>
+    <div class="hr-thin--blue"></div>
     <div>
-      <h3>Resume</h3>
-      <div v-for="j in jobs" :key="j.name">
+      <div v-for="j in jobs" :key="j.name" class="resume__block">
         <div>{{ j.name }}</div>
         <div>{{ j.location }} | {{ j.dates }}</div>
         <div>{{ j.title }}</div>
-        <div>responsibilities</div>
         <ul>
-          <li v-for="(r, index) in j.responsibilities" :key="index">{{ r }}</li>
+          <li v-for="(r, index) in j.responsibilities" :key="index"><p>{{ r }}</p></li>
         </ul>
       </div>
     </div>
+    <div class="hr--blue"></div>
+    <h1>Tools + Skills</h1>
     <div class="skills">
-      <div class="skills__title">
-        <h3>Skills I can use professionally...</h3>
-        <ul>
-          <li class="skills_skill" v-for="(s, index) in skills.confident" :key="index">{{ s }}</li>
-        </ul>
-      </div>
-      <div class="skills__title">
-        <h3>Skills I'm working on...</h3>
-        <ul>
-          <li class="skills_skill" v-for="(s, index) in skills.workingOn" :key="index">{{ s }}</li>
-        </ul>
-      </div>
+        <div class="skills__group">
+        <h3>"The Seal is for Marksmanship. The Gorilla is for Sand Racing."</h3>
+        <div class="skills__skill" v-for="(s, index) in skills.confident" :key="index">{{ s }}</div>
+        </div>
+        <div class="skills__group">
+          <h3>"There's Always Money in the Banana Stand"</h3>
+          <div class="skills__skill--yellow" v-for="(s, index) in skills.workingOn" :key="index">{{ s }}</div>
+        </div>
+        <div class="skills__group">
+          <h3>"I Don't Understand the Question and I Won't Respond to It"</h3>
+          <div class="skills__skill--red" v-for="(s, index) in skills.notGreat" :key="index">{{ s }}</div>
+        </div>
     </div>
     <div></div>
     <app-menu></app-menu>
@@ -50,12 +50,14 @@ export default {
       education: {
         Cornell: {
           name: 'Cornell University',
+          dates: '2006-2010',
           degree: 'BS Hotel Administration',
           minor: 'Real Estate',
           concentration: 'Hotel Development'
         },
         Parsons: {
           name: 'Parsons The New School for Design',
+          dates: '2013-2015',
           degree: 'AAS Graphic Design',
           concentration: 'Interactive Design'
         }
@@ -112,15 +114,21 @@ export default {
           'Python',
           'Pandas',
           'Git',
-          'Firbase',
+          'InVision',
+          'Zeplin',
           'Excel'
         ],
         workingOn: [
-          'Good CSS (and no more Bootstrap)',
+          'Good CSS',
           'React (+ Redux)',
           'Node.js',
           'Testing',
           'Making my own API',
+          'Build Configurations'
+        ],
+        notGreat: [
+          'Machine Learning',
+          'Politics'
         ]
       }
     }
@@ -133,24 +141,73 @@ export default {
 
 <style>
 .resume {
-  text-align: left;
   width: var(--desktopWidth);
   margin: 0 auto;
+  font-size: var(--fontSm);
+  padding-top: 25px;
+}
+
+.resume p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0px;
+}
+
+.resume li {
+  margin: 0px;
+}
+
+.resume h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.resume__block:not(:last-child) {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--gray);
+  padding: 20px 0px;
+}
+
+.resume__block:last-child {
+  margin-bottom: 15px;
+  padding: 20px 0px;  
 }
 
 .skills {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border: 1px solid teal;
-  padding: 10px;
+  width: 60%;
+  margin-bottom: 20px;
 }
 
-.skills__title > h3 {
-  border-bottom: 1px solid teal;
+.skills h3 {
+  font-weight: 400;
 }
 
 .skills__skill {
-  display: block;
+  display: inline-block;
+  padding: 8px;
+  background-color: var(--cyan);
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.skills__skill--yellow {
+  display: inline-block;
+  padding: 8px;
+  background-color: var(--yellow);
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.skills__skill--red {
+  display: inline-block;
+  padding: 8px;
+  background-color: var(--red);
+  color: white;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 </style>

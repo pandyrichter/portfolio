@@ -17,6 +17,7 @@ export default {
   --red: #F25757;
   --yellow: #F2E863;
   --black: #333;
+  --gray: lightgray;
   --desktopWidth: 1080px;
   --fontSm: 0.85rem;
   --fontLg: 1.5rem;
@@ -59,7 +60,23 @@ li {
   margin: 15px 0px;
 }
 
+.hr-thin--blue {
+  width: 100%;
+  border-bottom: 1px solid var(--blue);
+  margin: 15px 0px;
+}
+
+.hr-thin--gray {
+  width: 100%;
+  border-bottom: 1px solid var(--gray);
+  margin: 15px 0px;
+}
+
 .accent--green {
   color: var(--cyan);
+}
+
+.accent--blue {
+  color: var(--blue);
 }
 </style>
