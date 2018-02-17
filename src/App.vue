@@ -19,6 +19,7 @@ export default {
   --black: #333;
   --gray: lightgray;
   --desktopWidth: 1080px;
+  --tabletWidth: 700px;
   --fontSm: 0.85rem;
   --fontLg: 1.5rem;
   --fontXl: 3.0rem;
@@ -78,5 +79,27 @@ li {
 
 .accent--blue {
   color: var(--blue);
+}
+
+.hide-until-tablet {
+  display: none;
+}
+
+.hide-until-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-until-tablet {
+    display: inline-block;
+    margin: 0px 5px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hide-until-desktop {
+    display: inline-block;
+    margin: 0px 5px;
+  }
 }
 </style>

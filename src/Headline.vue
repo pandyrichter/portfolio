@@ -3,12 +3,12 @@
     <div class="headline">
       <div>
         <div class="headline__top">
-          <h1><span class="accent--green">Hi,</span> I'm Dave! <br> I'm a Product Designer for Real Estate, Construction, Hospitality + Finance Tech</h1>
+          <h1><span class="accent--green">Dave Stein</span><br> I'm a Product Designer for Real Estate, Construction, Hospitality + Finance Tech</h1>
           <div class="hr--green"></div>
           <h2>I combine my business background with
-            <span class="accent--green">Visual, UX, and Branding Design</span><br>and
+            <span class="accent--green">Visual, UX, and Branding Design</span><br class="hide-until-desktop"> and
             <span class="accent--green">Front-End Development</span>
-            skills to make informed and thoughtful experiences.
+            skills to build capable and comprehensive experiences.
           </h2>
         </div>
       </div>
@@ -23,15 +23,15 @@
               {{ p.description }}
               </div>
               <div>
-                <a v-if="p.website" :href="p.website" target="_blank">| Visit Site</a>
-                <a v-if="p.process" href="#">| View Details</a>
+                <a v-if="p.website" :href="p.website" target="_blank"><span class="hide-until-desktop">|</span>Visit Site</a>
+                <a v-if="p.process" href="#"><span class="hide-until-desktop">|</span>View Details</a>
               </div>
             </div>
           </div>
           <!-- <div v-for="(p, index) in p.skills" :key="index" class="project__skills">{{ p }}</div> -->
         </div>
       </div>
-        <h2>(I also love 🎸<span class="highlight">music</span>, <span class="highlight">drawing</span> and 🎄🎄<span class="highlight">getting outside</span>.)</h2>
+        <!-- <h2>(I also love <span class="highlight">getting</span><span class="highlight">outside</span>.)</h2> -->
     </div>
   </div>
 </template>
@@ -92,7 +92,6 @@ export default {
 <style>
 .headline-wrapper {
   background-color: var(--blue);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,7 +117,6 @@ export default {
   background-color: #37A1E1;
   border: 1px solid #37A1E1;
   border-radius: 5px;
-  width: var(--desktopWidth);
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -132,9 +130,8 @@ export default {
 }
 
 .headline__top > h1 {
-  font-size: var(--fontXl);
+  font-size: var(--fontLg);
   font-weight: 500;
-  width: 60%;
 }
 
 .headline__top > h2 {
@@ -177,14 +174,14 @@ export default {
 .project-preview__description {
   margin: 5px 0px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  align-items: center;
+  align-items: left;
 }
 
 .project-preview__description a {
   color: #333;
-  padding: 5px;
   border-radius: 4px;
   text-decoration: none;
   font-size: var(--fontSm);
@@ -203,6 +200,36 @@ export default {
 
 .contact > a {
   color: var(--cyan);
+}
+
+@media screen and (min-width: 768px) {
+  .headline {
+    max-width: var(--tabletWidth);
+  }
+
+  .headline__top > h1 {
+    font-size: var(--fontXl);
+    width: 80%;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .headline-wrapper {
+    min-height: 100vh;
+  }
+  .headline {
+    max-width: var(--desktopWidth);
+  }
+
+  .headline__top > h1 {
+    font-size: var(--fontXl);
+    width: 60%;
+  }
+
+  .project-preview__description {
+    flex-direction: row;
+  }
 }
 
 </style>

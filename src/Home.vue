@@ -1,14 +1,16 @@
 <template>
     <div>
       <headline></headline>
-      <div>
-        <nav id="projectNav" class="project-nav__wrapper">
-          <div class="project-nav">
-            <div class="project-nav__button" @click="toggleThruProjects('prev')"><span class="accent--green">←</span> Previous</div>
-            <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
-            <div class="project-nav__button" @click="toggleThruProjects('next')">Next <span class="accent--green">→</span></div>
+        <nav id="projectNav">
+          <div class="project-nav__wrapper">
+            <div class="project-nav">
+              <div class="project-nav__button" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
+              <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
+              <div class="project-nav__button" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
+            </div>
           </div>
         </nav>
+      <div id="Projects">
         <project v-for="(project, i) in projectsFull" v-show="projectIndex === i" :key="project.id" :projectData="project"></project>
       </div>
     <app-menu></app-menu>
@@ -27,7 +29,6 @@ export default {
     return {
       projectIndex: 0,
       projectsFull: [],
-      menuOpen: false,
     }
   },
   created () {
@@ -42,22 +43,6 @@ export default {
       console.log('Something went wrong', err)
     });
   },
-  // mounted () {
-  //   const nav = document.getElementById('projectNav')
-  //   const topOfNav = nav.offsetTop;
-
-  //   function fixNav() {
-  //     console.log(topOfNav, window.scrollY);
-  //     if (window.scrollY >= topOfNav) {
-  //       document.body.style.paddingTop = nav.offsetHeight;
-  //       document.body.classList.add('fixed-nav');
-  //     } else {
-  //       document.body.classList.remove('fixed-nav');
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', fixNav);
-  // },
   methods: {
     toggleThruProjects (dir) {
       let self = this
@@ -117,8 +102,12 @@ li {
   color: var(--cyan);
 }
 
-.fixed-nav {
-  position: fixed;
+nav {
+  background-color: white;
+  top:0;
+  width: 100%;
+  transition:all 0.5s;
+  position: relative;
 }
 
 .project-nav__wrapper {
@@ -131,7 +120,7 @@ li {
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-  width: var(--desktopWidth);
+  width: 100%;
 }
 
 .project-nav__button {
@@ -141,5 +130,17 @@ li {
 
 .project-nav__button:hover {
   color: var(--blue);
+}
+
+@media screen and (min-width: 768px) {
+  .project-nav {
+    max-width: var(--tabletWidth);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .project-nav {
+    max-width: var(--desktopWidth);
+  }
 }
 </style>

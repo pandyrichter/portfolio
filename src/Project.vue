@@ -43,9 +43,7 @@ export default {
 
 <style>
 .project {
-  width: var(--desktopWidth);
-  margin: 0 auto;
-  padding-top: 40px;
+  padding: 10px;
 }
 
 .project > h3 {
@@ -53,7 +51,7 @@ export default {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  margin: 20px 0px 0px;
+  margin: 30px 0px 0px;
 }
 
 .project h2 {
@@ -66,7 +64,7 @@ export default {
 }
 
 .project-gallery {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .project-gallery__description {
@@ -75,15 +73,8 @@ export default {
   padding: 25px 0px;
 }
 
-/* .img-grid {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
-  grid-gap: 20px;
-} */
-
 .project-img__block {
-  margin: 25px 0px 50px;
+  margin: 10px 0px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +89,6 @@ export default {
 .project-img__caption {
   font-size: var(--fontSm);
   color: var(--blue);
-  margin-top: 20px;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -106,5 +96,39 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .project {
+    max-width: var(--tabletWidth);
+    padding-top: 40px;
+    margin: 0 auto;
+  }
+
+  .project-gallery {
+    margin-top: 25px;
+  }
+
+  .project-img__block {
+    margin-bottom: 25px 0px 50px;
+  }
+
+  .project-img__caption {
+    font-size: var(--fontSm);
+    color: var(--blue);
+    margin-top: 20px;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .project {
+    max-width: var(--desktopWidth);
+    padding-top: 40px;
+  }
+
+  .project-gallery {
+    margin-top: 50px;
+  }
 }
 </style>

@@ -5,9 +5,7 @@
       <div class="menu__items">
         <h1 @click="navToComponent('Home')">Home</h1>
         <div class="hr--blue"></div>
-        <h1 >Projects</h1>
-        <div class="hr--blue"></div>
-        <h1 @click="navToComponent('Code')">Code</h1>
+        <h1 @click="navToComponent('Projects')">Projects</h1>
         <div class="hr--blue"></div>
         <h1 @click="navToComponent('Resume')">Resume</h1>
         <div class="hr--blue"></div>
@@ -48,11 +46,11 @@ h1 {
   color: var(--blue);
 }
 .menu {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 100%;
   position: fixed;
   opacity: .95;
@@ -62,7 +60,7 @@ h1 {
 }
 
 .menu__items {
-  width: 50%;
+  width: 90%;
 }
 
 .menu__items > h1 {
@@ -79,17 +77,42 @@ h1 {
   position: fixed;
   top: 0;
   right: 0;
-  margin: 25px;
-  color: var(--blue);
-  background-color: var(--cyan);
-  border-radius: 3px;
-  padding: 15px;
+  color: var(--cyan);
   font-weight: 500;
   text-transform: uppercase;
   cursor: pointer;
+  text-align: right;
+  width: 100%;
+  padding: 15px 15px;
 }
 
 .menu-nav:hover {
   color: var(--red);
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    justify-content: space-around;
+  }
+
+  .menu__items {
+    width: 50%;
+  }
+
+  .menu-nav {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    margin: 25px;
+    color: var(--blue);
+    display: inline-block;
+    background-color: var(--cyan);
+    border-radius: 3px;
+    padding: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: auto;
+  }
 }
 </style>

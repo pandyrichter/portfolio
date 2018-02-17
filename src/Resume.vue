@@ -3,7 +3,7 @@
     <h1>Resume</h1>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
-        <div>{{ e.name }}</div>
+        <div><strong>{{ e.name }}</strong></div>
         <div>{{ e.dates }}</div>
         <div>{{ e.degree }} <span v-if="e.minor">| {{ e.minor }}</span></div>
         <div>Concentration: {{ e.concentration }}</div>
@@ -12,13 +12,22 @@
     <div class="hr-thin--blue"></div>
     <div>
       <div v-for="j in jobs" :key="j.name" class="resume__block">
-        <div>{{ j.name }}</div>
+        <div><strong>{{ j.name }}</strong></div>
         <div>{{ j.location }} | {{ j.dates }}</div>
         <div>{{ j.title }}</div>
         <ul>
           <li v-for="(r, index) in j.responsibilities" :key="index"><p>{{ r }}</p></li>
         </ul>
       </div>
+    </div>
+    <div class="hr--blue"></div>
+    <div id="CodeSection">
+      <h1>Code Samples</h1>
+      <h3>Learning to code has helped me to become a better and more effective designer.
+      <br>Here are a few very smalls samples that help demonstrate how I think with code.
+      </h3>
+      <a target="_blank" href="https://medium.com/@ddubski/setting-up-modular-postcss-with-webpack-9af084513acc">A Medium Post</a>
+      <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">My First Stack Overflow Question</a>
     </div>
     <div class="hr--blue"></div>
     <h1>Tools + Skills</h1>
@@ -36,7 +45,6 @@
           <div class="skills__skill--red" v-for="(s, index) in skills.notGreat" :key="index">{{ s }}</div>
         </div>
     </div>
-    <div></div>
     <app-menu></app-menu>
   </div>
 </template>
@@ -141,10 +149,9 @@ export default {
 
 <style>
 .resume {
-  width: var(--desktopWidth);
   margin: 0 auto;
   font-size: var(--fontSm);
-  padding-top: 25px;
+  padding: 10px;
 }
 
 .resume p {
@@ -156,10 +163,24 @@ export default {
   margin: 0px;
 }
 
+.resume h3 {
+  font-weight: 400;
+}
+
 .resume h2 {
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
+}
+
+.resume a {
+  color: var(--blue);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.resume a:hover {
+  color: var(--cyan);
 }
 
 .resume__block:not(:last-child) {
@@ -173,13 +194,12 @@ export default {
   padding: 20px 0px;  
 }
 
-.skills {
-  width: 60%;
-  margin-bottom: 20px;
+#CodeSection {
+  padding: 0px 0px 10px;
 }
 
-.skills h3 {
-  font-weight: 400;
+.skills {
+  margin-bottom: 20px;
 }
 
 .skills__skill {
@@ -208,6 +228,27 @@ export default {
   border-radius: 3px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .resume {
+    max-width: var(--tabletWidth);
+    padding: 25px 0px 50px;
+  }
+
+  .skills {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .resume {
+    max-width: var(--desktopWidth);
+  }
+
+  .skills {
+    width: 60%;
+  }
 }
 
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="contact">
-    <h1>Contact</h1>
-    <h3>Email: dwstein@outlook.com</h3>
-    <h3>Phone: 781-775-8125</h3>
-    <app-menu></app-menu>
-  </div>
+    <div class="contact">
+      <h1>Contact</h1>
+      <h3>Email: dwstein@outlook.com</h3>
+      <h3>Phone: 781-775-8125</h3>
+      <app-menu></app-menu>
+    </div>
 </template>
 
 <script>
