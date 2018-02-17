@@ -31,7 +31,7 @@ export default {
       this.menuOpened = false
     },
     navToComponent (name) {
-      if (this.$route.name !== name) {
+      if (name !== this.$route.name) {
         this.$router.push({ name })
       } else {
         this.closeMenu()

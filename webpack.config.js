@@ -1,13 +1,15 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './docs'),
     publicPath: '/docs/',
-    filename: 'build.js'
+    filename: 'build.js',
   },
+  plugins: [new HtmlWebpackPlugin()],
   module: {
     rules: [
       {
