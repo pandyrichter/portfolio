@@ -24,11 +24,10 @@
               </div>
               <div>
                 <a v-if="p.website" :href="p.website" target="_blank"><span class="hide-until-desktop">|</span>Visit Site</a>
-                <a v-if="p.process" href="#"><span class="hide-until-desktop">|</span>View Details</a>
+                <a v-if="p.process" href="#" @click="visitProject(p.projectIndex)"><span class="hide-until-desktop">|</span>View Details</a>
               </div>
             </div>
           </div>
-          <!-- <div v-for="(p, index) in p.skills" :key="index" class="project__skills">{{ p }}</div> -->
         </div>
       </div>
         <!-- <h2>(I also love <span class="highlight">getting</span><span class="highlight">outside</span>.)</h2> -->
@@ -37,6 +36,8 @@
 </template>
 
 <script>
+import { eventBus } from './main'
+
 export default {
   data() {
     return {
@@ -46,18 +47,20 @@ export default {
       },
       projects: {
         project2: {
-          name: 'Benjamin West',
+          name: '🛋 Benjamin West',
           headline: 'I work at',
           description: 'Digital services for real estate furniture, fixtures, and equipment procurement',
           process: 'www',
-          skills: ['Analytics', 'UX Design', 'Visual Design', 'Development']
+          skills: ['Analytics', 'UX Design', 'Visual Design', 'Development'],
+          projectIndex: 0,
         },
         project3: {
-          name: 'Hotelied',
+          name: '🏖 Hotelied',
           headline: 'I previously worked at',
-          description: 'Luxury hotel bookings that reward you for being you',
+          description: 'Luxury hotel and resort bookings that reward you for being you',
           process: 'www',
-          skills: ['Visual Design', 'Branding']
+          skills: ['Visual Design', 'Branding'],
+          projectIndex: 1
         },
         project1: {
           name: '🏰 Shiny Buildings',
@@ -84,6 +87,17 @@ export default {
       } else {
         this.filters.active = filter
       }
+    },
+    visitProject (index) {
+      console.log('Im going to this project', index)
+      eventBus.$emit('visitingProject', index)
+      this.scrollTo('projectNav')
+    },
+    scrollTo (el) {
+      const elObj = document.getElementById(el)
+      console.log(elObj)
+      const elTop = elObj.offsetTop
+      window.scrollTo(0, elTop)
     }
   }
 }

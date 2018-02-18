@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { eventBus } from './main'
 import Prismic from 'prismic-javascript';
 
 import Headline from './Headline'
@@ -37,11 +38,17 @@ export default {
     Prismic.getApi(apiEndpoint).then(api => {
       return api.query("", { orderings: '[my.project.project_order_num]'})
     }).then(response => {
-      console.log('Documents: ', response.results)
+      // console.log('Documents: ', response.results)
       this.projectsFull = response.results
     }, err => {
       console.log('Something went wrong', err)
     });
+  },
+  mounted () {
+    eventBus.$on('visitingProject', pInd => {
+      this.projectIndex = pInd
+      console.log('Project switched!', pInd)
+    })
   },
   methods: {
     toggleThruProjects (dir) {
@@ -49,7 +56,7 @@ export default {
       if (dir === 'next') {
         self.projectIndex += 1
         if (self.projectIndex > (self.projectsFull.length - 1)) {
-        self.projectIndex = 0
+          self.projectIndex = 0
         }
       } else if (dir === 'prev') {
         self.projectIndex -= 1

@@ -10,7 +10,6 @@ module.exports = {
     publicPath: '/docs/',
     filename: 'build.js',
   },
-  plugins: [new HtmlWebpackPlugin()],
   module: {
     rules: [
       {

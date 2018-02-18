@@ -10,9 +10,23 @@
       <p>{{ projectData.data.project_tools[0].text }}</p>
       <h3>Dates</h3>
       <p>{{ projectData.data.project_dates[0].text }}</p>
+      <h3>View Work:</h3>
+      <a 
+      v-for="(gallery, i) in projectData.data.body" 
+      :key="i"
+      href="#"
+      :v-scroll-to="`#${removeSpace(gallery.primary.gallery_title[0].text)}`"
+      class="project__gallery-link"
+      >
+      {{ gallery.primary.gallery_title[0].text }}
+      </a>
       <div class="hr--blue"></div>
       <h3>Work</h3>
-      <div v-for="(gallery, i) in projectData.data.body" :key="i" class="project-gallery">
+      <div
+      :id="`${removeSpace(gallery.primary.gallery_title[0].text)}`"
+      v-for="(gallery) in projectData.data.body" 
+      :key="`${removeSpace(gallery.primary.gallery_title[0].text)}`" 
+      class="project-gallery">
         <h2>{{ gallery.primary.gallery_title[0].text }}</h2>
         <div class="project-gallery__description">{{ gallery.primary.gallery_description[0].text }}</div>
         <div>
@@ -36,6 +50,17 @@ export default {
     projectData: {
       type: Object,
       required: false
+    }
+  },
+  methods: {
+    removeSpace (str) {
+      return str.replace(/\s/g, "");
+    },
+    goTo (ref) {
+      let element = this.$refs[ref]
+      console.log(element)
+      let top = element.offsetTop
+      window.scrollTo(0, top)
     }
   }
 }
@@ -62,6 +87,12 @@ export default {
   font-size: var(--fontLg);
   margin-top: 8px;
 }
+
+.project__gallery-link {
+  display: block;
+  font-size: var(--fontLg);
+}
+
 
 .project-gallery {
   margin-top: 10px;
@@ -126,9 +157,12 @@ export default {
     max-width: var(--desktopWidth);
     padding-top: 40px;
   }
-
   .project-gallery {
     margin-top: 50px;
+  }
+
+  .project-img__block {
+    margin: 50px 0px;
   }
 }
 </style>
