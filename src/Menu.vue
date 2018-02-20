@@ -8,9 +8,6 @@
         <h1 @click="scrollToProjects()">Projects</h1>
         <div class="hr--blue"></div>
         <h1 @click="navToComponent('Resume')">Resume</h1>
-        <div class="hr--blue"></div>
-        <h1 @click="navToComponent('Contact')">Contact</h1>
-        <div class="menu-nav" @click="closeMenu">Close</div>
       </div>
     </div>
   </transition>
@@ -20,7 +17,6 @@
 
 <script>
 export default {
-  // props: ['menuOpen'],
   data () {
     return {
       menuOpened: false
@@ -33,6 +29,7 @@ export default {
     navToComponent (name) {
       if (name !== this.$route.name) {
         this.$router.push({ name })
+        this.closeMenu()
       } else {
         this.closeMenu()
       }
@@ -98,6 +95,7 @@ h1 {
   text-align: right;
   width: 100%;
   padding: 15px 15px;
+  z-index: 1;
 }
 
 .menu-nav:hover {

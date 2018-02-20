@@ -24,7 +24,7 @@
               </div>
               <div>
                 <a v-if="p.website" :href="p.website" target="_blank"><span class="hide-until-desktop">|</span>Visit Site</a>
-                <a v-if="p.process" href="#" @click="visitProject(p.projectIndex)"><span class="hide-until-desktop">|</span>View Details</a>
+                <a v-if="p.process" href="#Projects" @click="visitProject(p.projectIndex)"><span class="hide-until-desktop">|</span>View Details</a>
               </div>
             </div>
           </div>
@@ -89,15 +89,13 @@ export default {
       }
     },
     visitProject (index) {
-      console.log('Im going to this project', index)
       eventBus.$emit('visitingProject', index)
-      this.scrollTo('projectNav')
+      // this.scrollTo('projectNav')
     },
     scrollTo (el) {
       const elObj = document.getElementById(el)
-      console.log(elObj)
       const elTop = elObj.offsetTop
-      window.scrollTo(0, elTop)
+      window.scrollTo(300, 800)
     }
   }
 }

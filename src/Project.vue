@@ -10,16 +10,6 @@
       <p>{{ projectData.data.project_tools[0].text }}</p>
       <h3>Dates</h3>
       <p>{{ projectData.data.project_dates[0].text }}</p>
-      <h3>View Work:</h3>
-      <a 
-      v-for="(gallery, i) in projectData.data.body" 
-      :key="i"
-      href="#"
-      :v-scroll-to="`#${removeSpace(gallery.primary.gallery_title[0].text)}`"
-      class="project__gallery-link"
-      >
-      {{ gallery.primary.gallery_title[0].text }}
-      </a>
       <div class="hr--blue"></div>
       <h3>Work</h3>
       <div
@@ -28,13 +18,13 @@
       :key="`${removeSpace(gallery.primary.gallery_title[0].text)}`" 
       class="project-gallery">
         <h2>{{ gallery.primary.gallery_title[0].text }}</h2>
-        <div class="project-gallery__description">{{ gallery.primary.gallery_description[0].text }}</div>
+        <div v-if="gallery.primary.gallery_description[0].text" class="project-gallery__description">{{ gallery.primary.gallery_description[0].text }}</div>
         <div>
           <div v-for="(item, i) in gallery.items" :key="i" class="project-img__block">
             <picture>
               <img :src="item.gallery_img.url" alt="" class="project-img__img">
             </picture>
-            <div class="project-img__caption">{{ item.img_caption[0].text }}</div>
+            <div v-if="item.img_caption[0].text" class="project-img__caption">{{ item.img_caption[0].text }}</div>
           </div>
         </div>
       </div>

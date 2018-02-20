@@ -3,7 +3,7 @@
     <h1>Resume</h1>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
-        <div><strong>{{ e.name }}</strong></div>
+        <h3>{{ e.name }}</h3>
         <div>{{ e.dates }}</div>
         <div>{{ e.degree }} <span v-if="e.minor">| {{ e.minor }}</span></div>
         <div>Concentration: {{ e.concentration }}</div>
@@ -12,7 +12,7 @@
     <div class="hr-thin--blue"></div>
     <div>
       <div v-for="j in jobs" :key="j.name" class="resume__block">
-        <div><strong>{{ j.name }}</strong></div>
+        <h3>{{ j.name }}</h3>
         <div>{{ j.location }} | {{ j.dates }}</div>
         <div>{{ j.title }}</div>
         <ul>
@@ -24,10 +24,9 @@
     <div id="CodeSection">
       <h1>Code Samples</h1>
       <h3>Learning to code has helped me to become a better and more effective designer.
-      <br>Here are a few very smalls samples that help demonstrate how I think with code.
       </h3>
       <a target="_blank" href="https://medium.com/@ddubski/setting-up-modular-postcss-with-webpack-9af084513acc">A Medium Post</a>
-      <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">My First Stack Overflow Question</a>
+      <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">A Stack Overflow Question</a>
     </div>
     <div class="hr--blue"></div>
     <h1>Tools + Skills</h1>
@@ -51,6 +50,7 @@
 
 <script>
 import Menu from './Menu'
+import Footer from './Footer'
 
 export default {
   data () {
@@ -142,7 +142,8 @@ export default {
     }
   },
   components: {
-    AppMenu: Menu
+    AppMenu: Menu,
+    AppFooter: Footer
   }
 }
 </script>
@@ -161,6 +162,12 @@ export default {
 
 .resume li {
   margin: 0px;
+}
+
+.resume h5 {
+  font-weight: 500;
+  font-size: var(--fontMd);
+  margin-bottom: 5px;
 }
 
 .resume h3 {

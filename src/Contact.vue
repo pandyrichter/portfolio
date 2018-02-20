@@ -11,6 +11,9 @@
 import Menu from './Menu'
 
 export default {
+  mounted () {
+    console.log('Contact loaded')
+  },  
   components: {
     AppMenu: Menu
   }

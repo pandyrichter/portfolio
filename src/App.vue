@@ -21,6 +21,7 @@ export default {
   --desktopWidth: 1080px;
   --tabletWidth: 700px;
   --fontSm: 0.85rem;
+  --fontMd: 0.95rem;
   --fontLg: 1.5rem;
   --fontXl: 3.0rem;
 }
