@@ -1,5 +1,5 @@
 <template>
-  <div class="headline-wrapper">
+  <div id="headlineWrapper">
     <div class="headline">
       <div>
         <div class="headline__top">
@@ -102,7 +102,7 @@ export default {
 </script>
 
 <style>
-.headline-wrapper {
+#headlineWrapper {
   background-color: var(--blue);
   display: flex;
   flex-direction: column;
@@ -227,7 +227,7 @@ export default {
 }
 
 @media screen and (min-width: 1200px) {
-  .headline-wrapper {
+  #headlineWrapper {
     min-height: 100vh;
   }
   .headline {

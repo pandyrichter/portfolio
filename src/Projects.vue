@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div id="projectsWrapper">
     <nav id="projectNav">
       <div class="project-nav__wrapper">
-        <div class="accent--green hide-nav">Dave Stein</div>
+        <div id="myName" class="accent--green hide-nav">Dave Stein</div>
         <div class="project-nav">
           <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
-          <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
+          <div><span class="hide-until-tablet">Project</span>{{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
           <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
         </div>
         <div class="accent--green hide-nav" @click="openMenu">Menu</div>
@@ -35,7 +35,6 @@ export default {
     Prismic.getApi(apiEndpoint).then(api => {
       return api.query("", { orderings: '[my.project.project_order_num]'})
     }).then(response => {
-      // console.log('Documents: ', response.results)
       this.projectsFull = response.results
     }, err => {
       console.log('Something went wrong', err)
@@ -47,7 +46,8 @@ export default {
       console.log('Project switched!', pInd)
     })
 
-    // Thanks to Wes Bos for this quick one:
+    // Sticky Nav
+    // Thanks to Wes Bos for demonstrating this:
     const nav = document.querySelector('#projectNav');
     let topOfNav = nav.offsetTop;
 
@@ -60,8 +60,7 @@ export default {
         document.body.style.paddingTop = 0;
       }
     }
-
-      window.addEventListener('scroll', fixNav);
+    window.addEventListener('scroll', fixNav);
   },
   methods: {
     toggleThruProjects (dir) {
@@ -77,6 +76,8 @@ export default {
           self.projectIndex = (self.projectsFull.length - 1)
         }
       }
+      const headlineWrapper = document.getElementById('headlineWrapper')
+      window.scrollTo(0,headlineWrapper.offsetHeight)
     },
     openMenu () {
       eventBus.$emit('openingMenu', true)
@@ -101,7 +102,7 @@ nav {
 .project-nav__wrapper {
   padding: 20px 0px;
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
@@ -112,8 +113,10 @@ nav {
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
   flex-basis: 50%;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .project-nav__button {
@@ -122,6 +125,7 @@ nav {
   border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: color 250ms;
+  text-transform: none;
 }
 
 .project-nav__button:hover {
@@ -139,7 +143,7 @@ nav {
 
 body.fixed-nav nav {
   background-color: var(--blue);
-  color: white;
+  color: #333;
   position: fixed;
   box-shadow:0 5px 3px rgba(0,0,0,0.1);
 }
@@ -147,8 +151,7 @@ body.fixed-nav nav {
 .fixed-nav .project-nav__button {
   padding: 10px;
   font-weight: 500;
-  border-bottom: 2px solid white;
-  color: #333;
+  border-bottom: 2px solid #333;
 }
 
 .hide-nav {

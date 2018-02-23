@@ -95,6 +95,11 @@ li {
     display: inline-block;
     margin: 0px 5px;
   }
+
+  .show-mobile-only {
+    display: none;
+  }
+
 }
 
 @media screen and (min-width: 1200px) {

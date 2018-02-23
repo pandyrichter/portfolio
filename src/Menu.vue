@@ -42,18 +42,14 @@ export default {
         this.closeMenu()
       }
     },
-    scrollTo (el) {
-      const elObj = document.getElementById(el)
-      const elTop = elObj.offsetTop
-      this.closeMenu()
-      window.scrollTo(0, elTop)
-    },
     scrollToProjects () {
+      const headlineWrapper = document.getElementById('headlineWrapper')
       if (this.$route.name !== 'Home') {
         this.navToComponent('Home')
-        this.scrollTo('projectNav')
+        window.scrollTo(0,headlineWrapper.offsetHeight)
       } else {
-        this.scrollTo('projectNav')
+        window.scrollTo(0,headlineWrapper.offsetHeight)
+        this.closeMenu()
       }
     }
   }
