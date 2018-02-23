@@ -8,7 +8,7 @@
           <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
           <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
         </div>
-        <div class="accent--green hide-nav" @click="window.scrollTo(0, 0)">Menu</div>
+        <div class="accent--green hide-nav" @click="openMenu">Menu</div>
       </div>
     </nav>
     <div id="Projects">
@@ -49,16 +49,7 @@ export default {
 
     // Thanks to Wes Bos for this quick one:
     const nav = document.querySelector('#projectNav');
-    // const menuButton = document.querySelector('.menu-nav')
     let topOfNav = nav.offsetTop;
-    // let bottomOfMenuButton = menuButton.offsetTop + menuButton.offsetHeight
-    // console.log(bottomOfMenuButton)
-
-    // function hideMenu() {
-    //   if (topOfNav >= bottomOfMenuButton) {
-    //     console.log('Getting passed...')
-    //   }
-    // }
 
     function fixNav() {
       if(window.scrollY >= topOfNav) {
@@ -70,8 +61,7 @@ export default {
       }
     }
 
-    // window.addEventListener('scroll', hideMenu);
-    window.addEventListener('scroll', fixNav);
+      window.addEventListener('scroll', fixNav);
   },
   methods: {
     toggleThruProjects (dir) {
@@ -87,6 +77,9 @@ export default {
           self.projectIndex = (self.projectsFull.length - 1)
         }
       }
+    },
+    openMenu () {
+      eventBus.$emit('openingMenu', true)
     }
   },
   components: {
@@ -120,9 +113,13 @@ nav {
   justify-content: space-around;
   margin: 0 auto;
   width: 50%;
+  flex-basis: 50%;
 }
 
 .project-nav__button {
+  padding: 10px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: color 250ms;
 }
@@ -149,9 +146,9 @@ body.fixed-nav nav {
 
 .fixed-nav .project-nav__button {
   padding: 10px;
+  font-weight: 500;
   border-bottom: 2px solid white;
   color: #333;
-  font-weight: 500;
 }
 
 .hide-nav {
@@ -161,6 +158,12 @@ body.fixed-nav nav {
   transition: all 0.5s;
   display: block;
   font-weight: 500;
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.hide-nav:last-child {
+  cursor: pointer;
 }
 
 .fixed-nav .hide-nav {

@@ -16,11 +16,19 @@
 </template>
 
 <script>
+import { eventBus} from './main'
+
 export default {
   data () {
     return {
       menuOpened: false
     }
+  },
+  mounted () {
+    eventBus.$on('openingMenu', status => {
+      console.log('Opened menu from Projects!')
+      this.menuOpened = status
+    })
   },
   methods: {
     closeMenu () {
