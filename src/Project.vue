@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="project">
-      <h1>{{ projectData.data.project_title[0].text }}</h1>
+      <h1 :style="{ color: projectData.data.brand_color }">{{ projectData.data.project_title[0].text }}</h1>
       <h3>Overview</h3>
       <p>{{ projectData.data.project_overview[0].text }}</p>
       <h3>My Role</h3>
@@ -21,13 +21,16 @@
         <div v-if="gallery.primary.gallery_description[0].text" class="project-gallery__description">{{ gallery.primary.gallery_description[0].text }}</div>
         <div>
           <div v-for="(item, i) in gallery.items" :key="i" class="project-img__block">
+            <!-- <div>{{ projectData.data.brand_color }}</div> -->
+            <div :style="{ color: projectData.data.brand_color }" v-if="item.img_caption[0].text" class="project-img__caption"><strong>{{ item.img_caption[0].text }}:</strong></div>
             <picture>
               <img :src="item.gallery_img.url" alt="" class="project-img__img">
             </picture>
-            <div v-if="item.img_caption[0].text" class="project-img__caption">{{ item.img_caption[0].text }}</div>
           </div>
         </div>
       </div>
+      <div class="hr--blue"></div>
+      <h3>See more: <a :href="`http://${projectData.data.site_url[0].text}`" target="_blank">{{ projectData.data.site_url[0].text }}</a></h3>
     </div>
   </transition>
 </template>
@@ -58,7 +61,7 @@ export default {
 
 <style>
 .project {
-  padding: 10px;
+  padding: 10px 0px 20px;
 }
 
 .project > h3 {
@@ -86,12 +89,14 @@ export default {
 
 .project-gallery {
   margin-top: 10px;
+  /* border-top: 1px solid var(--gray); */
 }
+
 
 .project-gallery__description {
   border-top: 1px solid var(--gray);
   border-bottom: 1px solid var(--gray);
-  padding: 25px 0px;
+  padding: 15px 0px;
 }
 
 .project-img__block {
@@ -108,8 +113,14 @@ export default {
 }
 
 .project-img__caption {
-  font-size: var(--fontSm);
   color: var(--blue);
+  display: block;
+  font-size: var(--fontSm);
+  text-align: left;
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px dotted var(--gray);
+  padding: 10px 0px;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -136,7 +147,6 @@ export default {
 
   .project-img__caption {
     font-size: var(--fontSm);
-    color: var(--blue);
     margin-top: 20px;
   }
 
@@ -149,10 +159,6 @@ export default {
   }
   .project-gallery {
     margin-top: 50px;
-  }
-
-  .project-img__block {
-    margin: 50px 0px;
   }
 }
 </style>

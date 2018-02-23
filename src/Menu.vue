@@ -68,6 +68,7 @@ h1 {
   top: 0;
   left: 0;
   background-color: var(--cyan);
+  z-index: 3;
 }
 
 .menu__items {
@@ -95,11 +96,16 @@ h1 {
   text-align: right;
   width: 100%;
   padding: 15px 15px;
-  z-index: 1;
+  z-index: 2;
+  transition: all 200ms;
 }
 
 .menu-nav:hover {
   color: var(--red);
+}
+
+.fixed-nav .menu-nav {
+  opacity: 0;
 }
 
 @media screen and (min-width: 768px) {

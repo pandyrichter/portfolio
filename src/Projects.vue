@@ -2,11 +2,13 @@
   <div>
     <nav id="projectNav">
       <div class="project-nav__wrapper">
+        <div class="accent--green hide-nav">Dave Stein</div>
         <div class="project-nav">
-          <div class="project-nav__button" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
+          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
           <div>Project {{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
-          <div class="project-nav__button" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
+          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
         </div>
+        <div class="accent--green hide-nav" @click="window.scrollTo(0, 0)">Menu</div>
       </div>
     </nav>
     <div id="Projects">
@@ -44,6 +46,32 @@ export default {
       this.projectIndex = pInd
       console.log('Project switched!', pInd)
     })
+
+    // Thanks to Wes Bos for this quick one:
+    const nav = document.querySelector('#projectNav');
+    // const menuButton = document.querySelector('.menu-nav')
+    let topOfNav = nav.offsetTop;
+    // let bottomOfMenuButton = menuButton.offsetTop + menuButton.offsetHeight
+    // console.log(bottomOfMenuButton)
+
+    // function hideMenu() {
+    //   if (topOfNav >= bottomOfMenuButton) {
+    //     console.log('Getting passed...')
+    //   }
+    // }
+
+    function fixNav() {
+      if(window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+        document.body.classList.add('fixed-nav');
+      } else {
+        document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = 0;
+      }
+    }
+
+    // window.addEventListener('scroll', hideMenu);
+    window.addEventListener('scroll', fixNav);
   },
   methods: {
     toggleThruProjects (dir) {
@@ -70,6 +98,7 @@ export default {
 <style>
 nav {
   background-color: white;
+  border-bottom: 1px solid var(--blue);
   top:0;
   width: 100%;
   transition:all 0.5s;
@@ -77,8 +106,12 @@ nav {
 }
 
 .project-nav__wrapper {
-  border-bottom: 1px solid var(--blue);
   padding: 20px 0px;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .project-nav {
@@ -86,7 +119,7 @@ nav {
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-  width: 100%;
+  width: 50%;
 }
 
 .project-nav__button {
@@ -96,6 +129,43 @@ nav {
 
 .project-nav__button:hover {
   color: var(--blue);
+}
+
+nav {
+  background-color: white;
+  top:0;
+  width: 100%;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixed-nav nav {
+  background-color: var(--blue);
+  color: white;
+  position: fixed;
+  box-shadow:0 5px 3px rgba(0,0,0,0.1);
+}
+
+.fixed-nav .project-nav__button {
+  padding: 10px;
+  border-bottom: 2px solid white;
+  color: #333;
+  font-weight: 500;
+}
+
+.hide-nav {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  display: block;
+  font-weight: 500;
+}
+
+.fixed-nav .hide-nav {
+  max-width: 500px;
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {

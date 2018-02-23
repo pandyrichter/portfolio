@@ -24,7 +24,7 @@
               </div>
               <div>
                 <a v-if="p.website" :href="p.website" target="_blank"><span class="hide-until-desktop">|</span>Visit Site</a>
-                <a v-if="p.process" href="#Projects" @click="visitProject(p.projectIndex)"><span class="hide-until-desktop">|</span>View Details</a>
+                <a v-if="p.process" href="#projectNav" @click="visitProject(p.projectIndex)"><span class="hide-until-desktop">|</span>View Details</a>
               </div>
             </div>
           </div>

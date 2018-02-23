@@ -1,5 +1,6 @@
 <template>
   <div class="resume">
+    <h1 class="accent--green">Dave Stein</h1>
     <h1>Resume</h1>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
@@ -32,16 +33,12 @@
     <h1>Tools + Skills</h1>
     <div class="skills">
         <div class="skills__group">
-        <h3>"The Seal is for Marksmanship. The Gorilla is for Sand Racing."</h3>
+        <h3>Good to go:</h3>
         <div class="skills__skill" v-for="(s, index) in skills.confident" :key="index">{{ s }}</div>
         </div>
         <div class="skills__group">
-          <h3>"There's Always Money in the Banana Stand"</h3>
+          <h3>Working on it:</h3>
           <div class="skills__skill--yellow" v-for="(s, index) in skills.workingOn" :key="index">{{ s }}</div>
-        </div>
-        <div class="skills__group">
-          <h3>"I Don't Understand the Question and I Won't Respond to It"</h3>
-          <div class="skills__skill--red" v-for="(s, index) in skills.notGreat" :key="index">{{ s }}</div>
         </div>
     </div>
     <app-menu></app-menu>
@@ -113,7 +110,11 @@ export default {
       },
       skills: {
         confident: [
-          'Adobe Creative Cloud',
+          'Photoshop',
+          'Illustrator',
+          'InDesign',
+          'XD',
+          'AfterEffects',
           'Sketch',
           'HTML',
           'CSS / PostCSS',
@@ -178,6 +179,10 @@ export default {
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
+}
+
+.resume > h1 {
+  margin: 0px;
 }
 
 .resume a {
