@@ -2,7 +2,7 @@
   <div id="projectsWrapper">
     <nav id="projectNav">
       <div class="project-nav__wrapper">
-        <div id="myName" class="accent--green hide-nav">Dave Stein</div>
+        <div class="accent--green hide-nav"><span class="show-mobile-only">DS</span><span class="hide-until-tablet">Dave Stein</span></div>
         <div class="project-nav">
           <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
           <div><span class="hide-until-tablet">Project</span>{{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
