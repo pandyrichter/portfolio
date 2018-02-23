@@ -8,6 +8,7 @@
         <h1 @click="scrollToProjects()">Projects</h1>
         <div class="hr--blue"></div>
         <h1 @click="navToComponent('Resume')">Resume</h1>
+        <div class="menu-nav" style="color: var(--red)" @click="closeMenu">Close</div>
       </div>
     </div>
   </transition>
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import { eventBus} from './main'
+import { eventBus } from './main'
 
 export default {
   data () {
@@ -37,9 +38,11 @@ export default {
     navToComponent (name) {
       if (name !== this.$route.name) {
         this.$router.push({ name })
+        window.scrollTo(0,0)
         this.closeMenu()
       } else {
         this.closeMenu()
+        window.scrollTo(0,0)
       }
     },
     scrollToProjects () {
@@ -72,7 +75,7 @@ h1 {
   top: 0;
   left: 0;
   background-color: var(--cyan);
-  z-index: 3;
+  z-index: 2;
 }
 
 .menu__items {
@@ -100,7 +103,7 @@ h1 {
   text-align: right;
   width: 100%;
   padding: 15px 15px;
-  z-index: 2;
+  z-index: 3;
   transition: all 200ms;
 }
 

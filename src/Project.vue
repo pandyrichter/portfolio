@@ -1,6 +1,7 @@
 <template>
   <transition name="fade">
     <div class="project">
+      <h3>Project</h3>
       <h1 :style="{ color: projectData.data.brand_color }">{{ projectData.data.project_title[0].text }}</h1>
       <h3>Overview</h3>
       <p>{{ projectData.data.project_overview[0].text }}</p>

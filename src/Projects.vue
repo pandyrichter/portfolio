@@ -129,7 +129,7 @@ nav {
 }
 
 .project-nav__button:hover {
-  color: var(--blue);
+  color: white;
 }
 
 nav {
