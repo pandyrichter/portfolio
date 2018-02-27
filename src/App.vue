@@ -17,7 +17,7 @@ export default {
   --red: #F25757;
   --yellow: #F2E863;
   --black: #333;
-  --gray: lightgray;
+  --gray: #E8E8E8;
   --desktopWidth: 1080px;
   --tabletWidth: 700px;
   --fontSm: 0.85rem;
@@ -41,7 +41,6 @@ h1, h2 {
 }
 
 ul {
-  list-style-type: none;
   padding: 0;
 }
 

@@ -14,9 +14,9 @@
     <div>
       <div v-for="j in jobs" :key="j.name" class="resume__block">
         <h3>{{ j.name }}</h3>
-        <div>{{ j.location }} | {{ j.dates }}</div>
+        <div>{{ j.location }}: {{ j.dates }}</div>
         <div>{{ j.title }}</div>
-        <ul>
+        <ul style="list-style-type:circle">
           <li v-for="(r, index) in j.responsibilities" :key="index"><p>{{ r }}</p></li>
         </ul>
       </div>
@@ -28,6 +28,7 @@
       </h3>
       <a target="_blank" href="https://medium.com/@ddubski/setting-up-modular-postcss-with-webpack-9af084513acc">A Medium Post</a>
       <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">A Stack Overflow Question</a>
+      <a target="_blank" href="https://gist.github.com/pandyrichter/d7c66d76d3e11c705ec2ac0568e927d9">A Gist for a Minorly Complicated Vue Component</a>
     </div>
     <div class="hr--blue"></div>
     <h1>Tools + Skills</h1>

@@ -2,11 +2,11 @@
   <div id="projectsWrapper">
     <nav id="projectNav">
       <div class="project-nav__wrapper">
-        <div class="accent--green hide-nav"><span class="show-mobile-only">DS</span><span class="hide-until-tablet">Dave Stein</span></div>
+        <div class="accent--green hide-nav"><span class="hide-until-tablet"><a href="#headlineWrapper" style="text-decoration: none; color: var(--cyan)">Dave Stein</a></span></div>
         <div class="project-nav">
-          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span><span class="hide-until-tablet">Prev</span></div>
-          <div><span class="hide-until-tablet">Project</span>{{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
-          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('next')"><span class="hide-until-tablet">Next </span><span>→</span></div>
+          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span></div>
+          <div class="project-nav__counter"><span class="hide-until-tablet">Project</span>{{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
+          <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('next')"><span>→</span></div>
         </div>
         <div class="accent--green hide-nav" @click="openMenu">Menu</div>
       </div>
@@ -109,14 +109,25 @@ nav {
 }
 
 .project-nav {
+  border: gray;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
   width: 40%;
   flex-basis: 50%;
-  text-transform: uppercase;
   font-weight: 500;
+  border: 1px solid var(--lightgray);
+  border-radius: 15px;
+  background-color: white;
+}
+
+.project-nav__counter {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .project-nav__button {
@@ -126,10 +137,29 @@ nav {
   cursor: pointer;
   transition: color 250ms;
   text-transform: none;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project-nav__button:hover {
-  color: white;
+.project-nav__button:first-child {
+  border-right: 1px solid var(--gray);
+}
+
+.project-nav__button:last-child {
+  border-left: 1px solid var(--gray);
+}
+
+.project-nav__button:hover:first-child {
+  background-color: var(--gray);
+  border-radius: 15px 0px 0px 15px;
+  border-right: 1px solid var(--gray);
+}
+
+.project-nav__button:hover:last-child {
+  background-color: var(--gray);
+  border-radius: 0px 15px 15px 0px;
 }
 
 nav {
@@ -151,7 +181,6 @@ body.fixed-nav nav {
 .fixed-nav .project-nav__button {
   padding: 10px;
   font-weight: 500;
-  border-bottom: 2px solid #333;
 }
 
 .hide-nav {

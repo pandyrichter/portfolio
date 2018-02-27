@@ -14,7 +14,7 @@
       </div>
       <div class="hr--green"></div>
       <div class="headline__bottom">
-        <div v-for="p in projects" :key="p.name" class="project-preview">
+        <a href="#projectNav" @click="visitProject(p.projectIndex)" v-for="p in projects" :key="p.name" class="project-preview">
           <div class="project-preview__headline">{{ p.headline }}:</div>
           <div class="project-preview__name">{{ p.name }}</div>
           <div class="project-preview__toolbar">
@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
         <!-- <h2>(I also love <span class="highlight">getting</span><span class="highlight">outside</span>.)</h2> -->
     </div>
@@ -66,9 +66,9 @@ export default {
           name: '🏰 Shiny Buildings',
           headline: 'I built and founded',
           description: 'Centralized data storage and access for real estate owners and their buildings',
-          website: 'https://www.shinybuildings.co',
-          process: '',
-          skills: ['UX Design', 'Visual Design', 'Branding', 'Development']
+          process: 'www',
+          skills: ['UX Design', 'Visual Design', 'Branding', 'Development'],
+          projectIndex: 2
         }
       },
       contact: {
@@ -155,23 +155,28 @@ export default {
 .project-preview {
   background-color: white;
   border-radius: 3px;
-  color: #37A1E1;
+  color: #333;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 8px;
   padding: 15px 15px 10px;
   text-align: left;
+  text-decoration: none;
+}
+
+.project-preview:hover {
+  background-color: var(--gray);
 }
 
 .project-preview__headline {
-  color: black;
+  color: #333;
   font-size: var(--fontSm);
   display: inline-block;
 }
 
 .project-preview__name {
-  color: #173753;
+  color: #333;
   font-weight: 500;
   font-size: var(--fontLg);
   margin-top: 5px;
@@ -193,11 +198,15 @@ export default {
 }
 
 .project-preview__description a {
-  color: #333;
+  color: var(--blue);
   border-radius: 4px;
   text-decoration: none;
   font-size: var(--fontSm);
   font-weight: 500;
+}
+
+.project-preview__description a:hover {
+  text-decoration: underline;
 }
 
 .contact {

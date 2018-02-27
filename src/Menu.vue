@@ -8,7 +8,7 @@
         <h1 @click="scrollToProjects()">Projects</h1>
         <div class="hr--blue"></div>
         <h1 @click="navToComponent('Resume')">Resume</h1>
-        <div class="menu-nav" style="color: var(--red)" @click="closeMenu">Close</div>
+        <div class="menu-nav" style="color: #333" @click="closeMenu">Close</div>
       </div>
     </div>
   </transition>
@@ -101,14 +101,14 @@ h1 {
   text-transform: uppercase;
   cursor: pointer;
   text-align: right;
-  width: 100%;
+  width: auto;
   padding: 15px 15px;
   z-index: 3;
   transition: all 200ms;
 }
 
 .menu-nav:hover {
-  color: var(--red);
+  color: #333;
 }
 
 .fixed-nav .menu-nav {
