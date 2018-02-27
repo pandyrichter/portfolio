@@ -62,7 +62,7 @@ export default {
 
 <style>
 .project {
-  padding: 10px 0px 20px;
+  padding: 10px 8px 20px;
 }
 
 .project > h3 {
