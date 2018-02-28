@@ -3,7 +3,7 @@
     <h1 class="accent--green">Dave Stein</h1>
     <h1>Resume</h1>
     <div class="hr-thin--blue"></div>
-    <a target="_blank" href="https://www.dropbox.com/s/dyrpcktqejzxbqi/DStein_Res_02.2018.pdf?dl=0">Full Resume (Dropbox)</a>
+    <a target="_blank" href="https://www.dropbox.com/s/fsmt4tnjcoax8sx/DStein_Res_02.2018.pdf?dl=0">Full Resume (Dropbox)</a>
     <div class="hr-thin--blue"></div>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
