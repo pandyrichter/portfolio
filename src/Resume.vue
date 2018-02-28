@@ -2,6 +2,9 @@
   <div class="resume">
     <h1 class="accent--green">Dave Stein</h1>
     <h1>Resume</h1>
+    <div class="hr-thin--blue"></div>
+    <a target="_blank" href="https://www.dropbox.com/s/dyrpcktqejzxbqi/DStein_Res_02.2018.pdf?dl=0">Full Resume (Dropbox)</a>
+    <div class="hr-thin--blue"></div>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
         <h3>{{ e.name }}</h3>
@@ -123,6 +126,8 @@ export default {
           'Vue (+ Vue ecosystem)',
           'Python',
           'Pandas',
+          'Jupyter',
+          'Bitbucket',
           'Git',
           'InVision',
           'Zeplin',
