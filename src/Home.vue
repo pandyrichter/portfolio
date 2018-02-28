@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="Start">
     <app-menu></app-menu>
     <headline></headline>
     <projects></projects>

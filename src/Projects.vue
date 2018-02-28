@@ -2,7 +2,7 @@
   <div id="projectsWrapper">
     <nav id="projectNav">
       <div class="project-nav__wrapper">
-        <div class="accent--green hide-nav"><span class="hide-until-tablet"><a href="#headlineWrapper" style="text-decoration: none; color: var(--cyan)">Dave Stein</a></span></div>
+        <div class="accent--green hide-nav"><span class="hide-until-tablet"><a href="#Start" style="text-decoration: none; color: var(--cyan)">Dave Stein</a></span></div>
         <div class="project-nav">
           <div class="project-nav__button" href="#projectNav" @click="toggleThruProjects('prev')"><span>←</span></div>
           <div class="project-nav__counter"><span class="hide-until-tablet">Project</span>{{ projectIndex + 1 }} of {{ projectsFull.length }}</div>
