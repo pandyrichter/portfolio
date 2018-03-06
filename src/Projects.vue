@@ -172,7 +172,7 @@ nav {
 }
 
 body.fixed-nav nav {
-  background-color: var(--blue);
+  background-color: var(--darkBlue);
   color: #333;
   position: fixed;
   box-shadow:0 5px 3px rgba(0,0,0,0.1);

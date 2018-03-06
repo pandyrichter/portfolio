@@ -3,7 +3,7 @@
     <div class="headline">
       <div>
         <div class="headline__top">
-          <h1><span class="accent--green">Dave Stein</span><br> I'm a Product Designer for Real Estate, Construction, Hospitality + Finance Tech</h1>
+          <h1><span class="accent--green">Dave Stein</span><br> I'm a Product Designer for Real Estate, Construction, Hospitality <br class="hide-at-tablet"> + Finance Tech</h1>
           <div class="hr--green"></div>
           <h2>I combine my business background with
             <span class="accent--green">Visual, UX, and Branding Design</span><br class="hide-until-desktop"> and
@@ -103,7 +103,7 @@ export default {
 
 <style>
 #headlineWrapper {
-  background-color: var(--blue);
+  background-color: var(--darkBlue);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,14 +126,12 @@ export default {
 }
 
 .headline {
-  background-color: #37A1E1;
-  border: 1px solid #37A1E1;
+  background-color: var(--darkBlue);
   border-radius: 5px;
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* grid-template-columns: repeat(2, 1fr); */
 }
 
 .headline__top {
@@ -207,20 +205,6 @@ export default {
 
 .project-preview__description a:hover {
   text-decoration: underline;
-}
-
-.contact {
-  border-top: 2px solid white;
-  color: white;
-  padding-top: 15px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 30px;
-  width: 1080px; 
-}
-
-.contact > a {
-  color: var(--cyan);
 }
 
 @media screen and (min-width: 768px) {

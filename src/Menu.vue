@@ -129,13 +129,13 @@ h1 {
     top: 5%;
     right: 5%;
     margin: 25px;
-    color: var(--blue);
+    color: var(--darkBlue);
     display: inline-block;
     background-color: var(--cyan);
     border-radius: 3px;
     padding: 15px;
     font-weight: 500;
-    text-transform: uppercase;
+    text-transform: none;
     cursor: pointer;
     width: auto;
   }

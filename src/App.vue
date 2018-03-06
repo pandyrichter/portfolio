@@ -14,6 +14,7 @@ export default {
 :root {
   --cyan: #38FFD9;
   --blue: #37A1E1;
+  --darkBlue: #111D4A;
   --red: #F25757;
   --yellow: #F2E863;
   --black: #333;
@@ -89,8 +90,17 @@ li {
   display: none;
 }
 
+.hide-at-tablet {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .hide-until-tablet {
+    display: inline-block;
+    margin: 0px 5px;
+  }
+
+  .hide-at-tablet {
     display: inline-block;
     margin: 0px 5px;
   }
@@ -105,6 +115,10 @@ li {
   .hide-until-desktop {
     display: inline-block;
     margin: 0px 5px;
+  }
+
+  .hide-at-tablet {
+    display: none;
   }
 }
 </style>
