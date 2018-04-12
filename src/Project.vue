@@ -23,7 +23,7 @@
         <div>
           <div v-for="(item, i) in gallery.items" :key="i" class="project-img__block">
             <!-- <div>{{ projectData.data.brand_color }}</div> -->
-            <div :style="{ color: projectData.data.brand_color }" v-if="item.img_caption[0].text" class="project-img__caption"><strong>{{ item.img_caption[0].text }}:</strong></div>
+            <div :style="{ color: projectData.data.brand_color }" v-if="item.img_caption[0].text" class="project-img__caption">{{ item.img_caption[0].text }}:</div>
             <picture>
               <img :src="item.gallery_img.url" alt="" class="project-img__img">
             </picture>
