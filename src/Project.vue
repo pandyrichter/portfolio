@@ -95,9 +95,8 @@ export default {
 
 
 .project-gallery__description {
-  border-top: 1px solid var(--gray);
-  border-bottom: 1px solid var(--gray);
-  padding: 15px 0px;
+  /* border-top: 1px solid var(--gray); */
+  /* border-bottom: 1px solid var(--gray); */
 }
 
 .project-img__block {
@@ -142,8 +141,12 @@ export default {
     margin-top: 25px;
   }
 
+  .project-gallery__description {
+    width: 80%;
+  }
+
   .project-img__block {
-    margin-bottom: 25px 0px 50px;
+    margin: 60px 0px 100px;
   }
 
   .project-img__caption {
