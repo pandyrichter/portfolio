@@ -25,15 +25,6 @@
       </div>
     </div>
     <div class="hr--blue"></div>
-    <div id="CodeSection">
-      <h1>Code Samples</h1>
-      <h3>Learning to code has helped me to become a better and more effective designer.
-      </h3>
-      <a target="_blank" href="https://medium.com/@ddubski/setting-up-modular-postcss-with-webpack-9af084513acc">A Medium Post</a>
-      <a target="_blank" href="https://stackoverflow.com/questions/47893923/vue2-vuex-commit-not-committing-without-vue-devtools">A Stack Overflow Question</a>
-      <a target="_blank" href="https://gist.github.com/pandyrichter/d7c66d76d3e11c705ec2ac0568e927d9">A Gist for a Minorly Complicated Vue Component</a>
-    </div>
-    <div class="hr--blue"></div>
     <h1>Tools + Skills</h1>
     <div class="skills">
         <div class="skills__group">
@@ -123,7 +114,9 @@ export default {
           'HTML',
           'CSS / PostCSS',
           'JavaScript',
-          'Vue (+ Vue ecosystem)',
+          'React',
+          'Redux',
+          'Vue',
           'Python',
           'Pandas',
           'Jupyter',
@@ -135,11 +128,10 @@ export default {
         ],
         workingOn: [
           'Good CSS',
-          'React (+ Redux)',
           'Node.js',
-          'Testing',
-          'Making my own API',
-          'Build Configurations'
+          'Java',
+          'Illustration',
+          'Contributing'
         ],
         notGreat: [
           'Machine Learning',

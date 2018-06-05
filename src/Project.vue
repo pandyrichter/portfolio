@@ -1,16 +1,22 @@
 <template>
   <transition name="fade">
     <div class="project">
-      <h3>Project</h3>
+      <h2>Project</h2>
       <h1 :style="{ color: projectData.data.brand_color }">{{ projectData.data.project_title[0].text }}</h1>
-      <h3>Overview</h3>
-      <p>{{ projectData.data.project_overview[0].text }}</p>
-      <h3>My Role</h3>
-      <p>{{ projectData.data.project_role[0].text }}</p>
-      <h3>Tools</h3>
-      <p>{{ projectData.data.project_tools[0].text }}</p>
-      <h3>Dates</h3>
-      <p>{{ projectData.data.project_dates[0].text }}</p>
+      <div class="project__details">
+        <div class="project__details--left">
+          <h3>Overview</h3>
+          <p>{{ projectData.data.project_overview[0].text }}</p>
+        </div>
+        <div class="project__details--right">
+          <h3>My Role</h3>
+          <p>{{ projectData.data.project_role[0].text }}</p>
+          <h3>Tools</h3>
+          <p>{{ projectData.data.project_tools[0].text }}</p>
+          <h3>Dates</h3>
+          <p>{{ projectData.data.project_dates[0].text }}</p>
+        </div>
+      </div>
       <div class="hr--blue"></div>
       <h3>Work</h3>
       <div
@@ -65,7 +71,7 @@ export default {
   padding: 10px 8px 20px;
 }
 
-.project > h3 {
+.project h3 {
   font-size: var(--fontSm);
   text-transform: uppercase;
   font-weight: 400;
@@ -77,9 +83,9 @@ export default {
   font-size: var(--fontLg);
 }
 
-.project > p {
-  font-size: var(--fontLg);
+.project p {
   margin-top: 8px;
+  line-height: 1.5rem;
 }
 
 .project__gallery-link {
@@ -95,8 +101,8 @@ export default {
 
 
 .project-gallery__description {
-  /* border-top: 1px solid var(--gray); */
-  /* border-bottom: 1px solid var(--gray); */
+  margin-top: 8px;
+  line-height: 1.5rem;
 }
 
 .project-img__block {
@@ -137,12 +143,23 @@ export default {
     margin: 0 auto;
   }
 
+  .project__details {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.project__details--left {
+  padding-right: 45px;
+}
+
+.project__details--right {
+  border-left: 1px solid var(--gray);
+  padding: 0px 20px; 
+  min-width: 30%;
+}
+
   .project-gallery {
     margin-top: 25px;
-  }
-
-  .project-gallery__description {
-    width: 80%;
   }
 
   .project-img__block {

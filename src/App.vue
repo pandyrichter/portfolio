@@ -24,7 +24,7 @@ export default {
   --fontSm: 0.85rem;
   --fontMd: 0.95rem;
   --fontLg: 1.5rem;
-  --fontXl: 3.0rem;
+  --fontXl: 3.2rem;
 }
 
 body {
@@ -32,13 +32,14 @@ body {
 }
 
 #app {
-  font-family: 'Rubik', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2 {
   font-weight: normal;
+  font-family: 'Rubik', sans-serif;
 }
 
 ul {

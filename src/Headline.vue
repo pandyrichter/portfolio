@@ -3,9 +3,9 @@
     <div class="headline">
       <div>
         <div class="headline__top">
-          <h1><span class="accent--green">Dave Stein</span><br> I'm a Product Designer for Real Estate, Construction, Hospitality <br class="hide-at-tablet"> + Finance Tech</h1>
+          <h1><span class="accent--green">Hi, I'm Dave:</span><br>I'm a Designer &amp; <br>Front-End Developer</h1>
           <div class="hr--green"></div>
-          <h2>I combine my business background with
+          <h2>I combine my <span class="accent--green">business background</span> with
             <span class="accent--green">Visual, UX, and Branding Design</span><br class="hide-until-desktop"> and
             <span class="accent--green">Front-End Development</span>
             skills to build capable and comprehensive experiences.
