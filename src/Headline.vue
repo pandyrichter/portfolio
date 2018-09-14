@@ -3,7 +3,8 @@
     <div class="headline">
       <div>
         <div class="headline__top">
-          <h1><span class="accent--green">Hi, I'm Dave:</span><br>I'm a Designer &amp; <br>Front-End Developer</h1>
+          <h1 class="accent--green"><strong>Dave Stein</strong></h1>
+          <h1>Design + Development + Skiing</h1>
           <div class="hr--green"></div>
           <h2>I combine my <span class="accent--green">business background</span> with
             <span class="accent--green">Visual, UX, and Branding Design</span><br class="hide-until-desktop"> and
@@ -128,7 +129,7 @@ export default {
 .headline {
   background-color: var(--darkBlue);
   border-radius: 5px;
-  height: 80%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -229,7 +230,7 @@ export default {
 
   .headline__top > h1 {
     font-size: var(--fontXl);
-    width: 60%;
+    width: 100%;
   }
 
   .project-preview__description {

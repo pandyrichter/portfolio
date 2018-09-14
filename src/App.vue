@@ -24,7 +24,7 @@ export default {
   --fontSm: 0.85rem;
   --fontMd: 0.95rem;
   --fontLg: 1.5rem;
-  --fontXl: 3.2rem;
+  --fontXl: 3.6rem;
 }
 
 body {
@@ -37,9 +37,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2 {
-  font-weight: normal;
-  font-family: 'Rubik', sans-serif;
+h1 {
+  line-height: 1.2rem;
 }
 
 ul {
