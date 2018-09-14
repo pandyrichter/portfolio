@@ -129,7 +129,7 @@ h1 {
     top: 5%;
     right: 5%;
     margin: 25px;
-    color: var(--darkBlue);
+    color: var(--bg);
     display: inline-block;
     background-color: var(--cyan);
     border-radius: 3px;

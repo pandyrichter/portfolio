@@ -14,11 +14,11 @@ export default {
 :root {
   --cyan: #38FFD9;
   --blue: #37A1E1;
-  --darkBlue: #111D4A;
   --red: #F25757;
   --yellow: #F2E863;
   --black: #333;
   --gray: #E8E8E8;
+  --bg: #222;
   --desktopWidth: 1080px;
   --tabletWidth: 700px;
   --fontSm: 0.85rem;
@@ -38,7 +38,7 @@ body {
 }
 
 h1 {
-  line-height: 1.2rem;
+  line-height: 1.4rem;
 }
 
 ul {
@@ -56,15 +56,15 @@ li {
   margin: 15px 0px;
 }
 
-.hr--blue {
+.hr--black {
   width: 100%;
-  border-bottom: 2px solid var(--blue);
+  border-bottom: 2px solid var(--bg);
   margin: 15px 0px;
 }
 
-.hr-thin--blue {
+.hr-thin--black {
   width: 100%;
-  border-bottom: 1px solid var(--blue);
+  border-bottom: 1px solid var(--bg);
   margin: 15px 0px;
 }
 

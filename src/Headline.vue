@@ -104,7 +104,7 @@ export default {
 
 <style>
 #headlineWrapper {
-  background-color: var(--darkBlue);
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,7 +127,6 @@ export default {
 }
 
 .headline {
-  background-color: var(--darkBlue);
   border-radius: 5px;
   height: 90%;
   display: flex;

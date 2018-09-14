@@ -17,7 +17,7 @@
           <p>{{ projectData.data.project_dates[0].text }}</p>
         </div>
       </div>
-      <div class="hr--blue"></div>
+      <div class="hr--black"></div>
       <h3>Work</h3>
       <div
       :id="`${removeSpace(gallery.primary.gallery_title[0].text)}`"

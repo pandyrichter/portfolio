@@ -2,9 +2,9 @@
   <div class="resume">
     <h1>Dave Stein</h1>
     <h1>Resume</h1>
-    <div class="hr-thin--blue"></div>
+    <div class="hr-thin--black"></div>
     <a target="_blank" href="https://www.dropbox.com/s/14u4hoxdivum8wz/DStein_Res_02.2018.pdf?dl=0">Full Resume (Dropbox)</a>
-    <div class="hr-thin--blue"></div>
+    <div class="hr-thin--black"></div>
     <div>
       <div v-for="e in education" :key="e.name" class="resume__block">
         <h3>{{ e.name }}</h3>
@@ -13,7 +13,7 @@
         <div>Concentration: {{ e.concentration }}</div>
       </div>
     </div>
-    <div class="hr-thin--blue"></div>
+    <div class="hr-thin--black"></div>
     <div>
       <div v-for="j in jobs" :key="j.name" class="resume__block">
         <h3>{{ j.name }}</h3>
@@ -24,7 +24,7 @@
         </ul>
       </div>
     </div>
-    <div class="hr--blue"></div>
+    <div class="hr--black"></div>
     <h1>Tools + Skills</h1>
     <div class="skills">
         <div class="skills__group">
